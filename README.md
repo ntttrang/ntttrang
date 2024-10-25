@@ -7,10 +7,12 @@ I'll be happy to meet you more! 😊 <br>
 <a href="https://github.com/ntttrang/github-readme-stats">
   <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ntttrang&layout=compact" />
 </a>
+<br> 
 <a href="https://github.com/ntttrang/convoychat">
   <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=ntttrang&show_icons=true&theme=radical" />
 </a>
 
+<br> 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://github.com/ntttrang" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="" height="20" width="30" /></a>
