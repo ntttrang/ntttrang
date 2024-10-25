@@ -1,6 +1,4 @@
 ## Hi there 👋
-
-## Hi there 👋
 I'll be happy to meet you more! 😊 <br>
 🔭 I'm currently working as a Backend Software Developer 🌟 <br>
 🌱 I’m currently learning generative AI 🐣 <br> 
