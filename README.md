@@ -7,7 +7,8 @@ I'll be happy to meet you more! 😊 <br>
 <a href="https://github.com/ntttrang/github-readme-stats">
   <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ntttrang&layout=compact" />
 </a>
-<br> 
+<br>
+
 <a href="https://github.com/ntttrang/convoychat">
   <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=ntttrang&show_icons=true&theme=radical" />
 </a>
