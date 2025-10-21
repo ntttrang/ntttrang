@@ -18,7 +18,7 @@ I'll be happy to meet you more! 😊 <br>
 
 <h4 align="left"> 📫 Connect with me:</h4>
 <p align="left">
-<a href="https://www.linkedin.com/in/ntttrang" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="LinkedIn" height="20" width="30" />
+<a href="https://www.linkedin.com/ntttrang" target="blank">
+  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="LinkedIn" height="20" width="30" style="filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(90%);" />
 </a>
 </p>
