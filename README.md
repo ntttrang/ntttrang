@@ -1,4 +1,4 @@
-<h3 style="color: #0969da;">Hi there 👋</h3>
+<h3 style="color: #0969da;"> Hi, I'm Trang 👋</h3>
 
 I'll be happy to meet you more! 😊 <br>
 👩🏻 I'm currently working as a Backend Software Engineer.<br>
