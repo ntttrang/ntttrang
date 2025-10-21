@@ -9,11 +9,9 @@ I'll be happy to meet you more! 😊 <br>
 
 <p align="left">
   <a href="https://github.com/ntttrang/github-readme-stats">
-    <img src="https://github-readme-stats.vercel.app/api?username=ntttrang&show_icons=true&theme=dark#gh-dark-mode-only" alt="Trang's GitHub stats" />
-    <img src="https://github-readme-stats.vercel.app/api?username=ntttrang&show_icons=true&theme=default#gh-light-mode-only" alt="Trang's GitHub stats" />
+    <img src="https://github-readme-stats.vercel.app/api?username=ntttrang&show_icons=true&theme=default" alt="Trang's GitHub stats" />
   </a>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=dark#gh-dark-mode-only" alt="Top Langs" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default#gh-light-mode-only" alt="Top Langs" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default" alt="Top Langs" />
 </p>
 
 
@@ -21,7 +19,6 @@ I'll be happy to meet you more! 😊 <br>
 <h4 align="left"> 📫 Connect with me:</h4>
 <p align="left">
 <a href="https://www.linkedin.com/in/ntttrang" target="blank">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg#gh-dark-mode-only" alt="LinkedIn" height="20" width="30" style="filter: invert(1);" />
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg#gh-light-mode-only" alt="LinkedIn" height="20" width="30" />
+  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="LinkedIn" height="20" width="30" />
 </a>
 </p>
