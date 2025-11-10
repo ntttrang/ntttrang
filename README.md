@@ -15,10 +15,11 @@ I'll be happy to meet you more! 😊 <br>
 </p>
 
 
-
+<!--
 📫 **Connect with me:** <br>
 &nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/trang-nguyen-it/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="20" width="20" style="vertical-align: middle;" /></a>
 &nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@trang-nguyen-thi-thuy" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="YouTube" height="20" width="20" style="vertical-align: middle;" /></a>
+-->
 
 <!-- <hr>
 <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white"/>
