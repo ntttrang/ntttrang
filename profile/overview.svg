@@ -535,11 +535,11 @@
 <rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
 <g transform="translate(0.00 2.50) scale(1.0000)">
 
-<title id="c3-titleId">AI-Powered Projects</title>
+<title id="c3-titleId">AI-enabled Projects</title>
 <desc id="c3-descId">2 of 10 public repositories use AI tooling.</desc>
 
 
-<text x="25" y="35" class="c3-h">AI-Powered Projects</text>
+<text x="25" y="35" class="c3-h">AI-enabled Projects</text>
 <g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">2</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">2 of 10 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="c3-stagger" style="animation-delay:450ms">

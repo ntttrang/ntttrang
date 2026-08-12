@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Generate an "AI-Powered Projects" SVG card for a GitHub profile README.
+"""Generate an "AI-enabled Projects" SVG card for a GitHub profile README.
 
-Detects AI-powered repositories via their **topic tags** (the labels in a repo's
+Detects AI-enabled repositories via their **topic tags** (the labels in a repo's
 "About" section) and renders a static SVG card matching the github-readme-stats
 visual style -- including the same entrance animations (title fade-in, staggered
 row reveal). The card is committed to the profile repo by the GitHub Actions
 workflow, so profile views never hit the API at view time.
 
-A repo counts as AI-powered if any of its topics:
+A repo counts as AI-enabled if any of its topics:
   - matches Claude Code or Cursor (shown as their own rows), OR
   - matches any other AI signal -- a general AI keyword (ai, genai, llm, gemini,
     gpt, openai, agent, machine-learning, rag, ...) or another AI coding tool
@@ -22,7 +22,7 @@ Environment:
   OWNER         GitHub username to scan (default: ntttrang).
 
 Output:
-  profile/ai-powered.svg
+  profile/AI-enabled.svg
 """
 import json
 import os
@@ -91,7 +91,7 @@ def api_get(path):
         headers={
             "Authorization": f"Bearer {TOKEN}",
             "Accept": "application/vnd.github+json",
-            "User-Agent": "ai-powered-stats",
+            "User-Agent": "ai-enabled-stats",
         },
     )
     try:
@@ -144,7 +144,7 @@ def render(total, scanned, rows):
     parts = [
         f'<svg width="{CARD_W}" viewBox="0 0 {CARD_W} {height}" fill="none" '
         f'xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">',
-        f'<title id="titleId">AI-Powered Projects</title>',
+        f'<title id="titleId">AI-enabled Projects</title>',
         f'<desc id="descId">{total} of {scanned} public repositories use AI tooling.</desc>',
         (
             f'<style>'
@@ -160,7 +160,7 @@ def render(total, scanned, rows):
         ),
         f'<rect x="0.5" y="0.5" rx="4.5" height="99%" width="{CARD_W - 1}" '
         f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1" data-testid="card-bg"/>',
-        f'<text x="25" y="35" class="h">AI-Powered Projects</text>',
+        f'<text x="25" y="35" class="h">AI-enabled Projects</text>',
         f'<g class="stagger" style="animation-delay:150ms">'
         f'<text x="{CARD_W / 2}" y="74" text-anchor="middle">'
         f'<tspan class="n">{total}</tspan>'
@@ -223,11 +223,11 @@ def main():
 
     svg = render(total, len(candidates), rows)
     os.makedirs("profile", exist_ok=True)
-    with open("profile/ai-powered.svg", "w", encoding="utf-8") as f:
+    with open("profile/AI-enabled.svg", "w", encoding="utf-8") as f:
         f.write(svg)
 
-    print(f"\nAI-powered: {total}/{len(candidates)} repos  tools={counts} other={other}")
-    print("wrote profile/ai-powered.svg")
+    print(f"\nAI-enabled: {total}/{len(candidates)} repos  tools={counts} other={other}")
+    print("wrote profile/AI-enabled.svg")
 
 
 if __name__ == "__main__":

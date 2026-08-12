@@ -4,7 +4,7 @@
 Reads the four generated cards:
   profile/stats.svg        GitHub Stats
   profile/top-langs.svg    Most Used Languages
-  profile/ai-powered.svg   AI-Powered Projects
+  profile/AI-enabled.svg   AI-enabled Projects
   profile/streaks.svg      Streaks
 
 The four source cards have very different native aspect ratios (the wide stats
@@ -36,7 +36,7 @@ CARDS = [
     ("profile/stats.svg", "GitHub Stats"),
     ("profile/top-langs.svg", "Most Used Languages"),
     ("profile/streaks.svg", "Streaks"),
-    ("profile/ai-powered.svg", "AI-Powered Projects"),
+    ("profile/AI-enabled.svg", "AI-enabled Projects"),
 ]
 
 # Every cell is exactly this size -> all four cards are identical rectangles.

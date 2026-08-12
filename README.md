@@ -5,7 +5,7 @@
 
 <p align="left">
   <a href="https://github.com/ntttrang">
-    <img src="./profile/overview.svg" alt="Trang's GitHub overview — stats, top languages, AI-powered projects and streaks" />
+    <img src="./profile/overview.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
   </a>
 </p>
 
