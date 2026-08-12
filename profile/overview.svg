@@ -335,7 +335,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="115.09"
+          width="114.06"
           height="8"
           fill="#00ADD8"
         />
@@ -343,9 +343,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="115.09"
+          x="114.06"
           y="0"
-          width="93.05"
+          width="92.22"
           height="8"
           fill="#3178c6"
         />
@@ -353,9 +353,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="208.14"
+          x="206.28"
           y="0"
-          width="13.45"
+          width="15.56"
           height="8"
           fill="#3572A5"
         />
@@ -363,9 +363,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="221.58999999999997"
+          x="221.84"
           y="0"
-          width="19.89"
+          width="19.810000000000002"
           height="8"
           fill="#e34c26"
         />
@@ -373,9 +373,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="231.47999999999996"
+          x="231.65"
           y="0"
-          width="17.18"
+          width="17.12"
           height="8"
           fill="#663399"
         />
@@ -383,9 +383,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="238.65999999999997"
+          x="238.77"
           y="0"
-          width="15.530000000000001"
+          width="15.48"
           height="8"
           fill="#f1e05a"
         />
@@ -393,9 +393,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="244.18999999999997"
+          x="244.25"
           y="0"
-          width="13.83"
+          width="13.79"
           height="8"
           fill="#89e051"
         />
@@ -403,9 +403,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="248.01999999999998"
+          x="248.04"
           y="0"
-          width="11.25"
+          width="11.24"
           height="8"
           fill="#427819"
         />
@@ -413,7 +413,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="249.26999999999998"
+          x="249.28"
           y="0"
           width="10.53"
           height="8"
@@ -423,7 +423,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="249.79999999999998"
+          x="249.81"
           y="0"
           width="10.19"
           height="8"
@@ -436,49 +436,49 @@
     <g class="c1-stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#00ADD8" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Go 46.04%
+        Go 45.62%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="c1-stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        TypeScript 37.22%
+        TypeScript 36.89%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="c1-stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Python 5.38%
+        Python 6.22%
       </text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="c1-stagger" style="animation-delay: 900ms">
       <circle cx="5" cy="6" r="5" fill="#e34c26" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        HTML 3.96%
+        HTML 3.92%
       </text>
     </g>
   </g><g transform="translate(0, 100)">
     <g class="c1-stagger" style="animation-delay: 1050ms">
       <circle cx="5" cy="6" r="5" fill="#663399" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        CSS 2.87%
+        CSS 2.85%
       </text>
     </g>
   </g></g><g transform="translate(150, 0)"><g transform="translate(0, 0)">
     <g class="c1-stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#f1e05a" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        JavaScript 2.21%
+        JavaScript 2.19%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="c1-stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#89e051" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Shell 1.53%
+        Shell 1.52%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
@@ -499,7 +499,7 @@
     <g class="c1-stagger" style="animation-delay: 1050ms">
       <circle cx="5" cy="6" r="5" fill="#e38c00" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        TSQL 0.08%
+        TSQL 0.07%
       </text>
     </g>
   </g></g>
@@ -553,16 +553,16 @@
 <g transform="translate(2.41 0.00) scale(0.9483)">
 
 <title id="c3-titleId">Streak Stats</title>
-<desc id="c3-descId">Current streak 4 days, longest streak 7 days, 1,117 contributions in 2026.</desc>
+<desc id="c3-descId">Current streak 3 days, longest streak 7 days, 1,110 contributions in 2026.</desc>
 
 
 <g transform="translate(24,11) scale(0.82)"><path d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 8.287 8.287 0 0 0 9 9.6a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48z" fill="#ff6b35"/><path d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18z" fill="#ffd166"/></g>
 <text x="52" y="33" class="c3-h">Streak Stats</text>
 <line x1="25" y1="52" x2="455" y2="52" stroke="#e4e2e2" stroke-width="1"/>
-<g class="c3-stagger" style="animation-delay:450ms"><rect x="25" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="127.5" y="89" text-anchor="middle" class="c3-lbl">Current Streak</text><text x="127.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#ff6b35">4</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="127.5" y="152" text-anchor="middle" class="c3-cap">Aug 10 – Aug 13</text></g>
+<g class="c3-stagger" style="animation-delay:450ms"><rect x="25" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="127.5" y="89" text-anchor="middle" class="c3-lbl">Current Streak</text><text x="127.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#ff6b35">3</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="127.5" y="152" text-anchor="middle" class="c3-cap">Aug 10 – Aug 12</text></g>
 <g class="c3-stagger" style="animation-delay:600ms"><rect x="250" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="352.5" y="89" text-anchor="middle" class="c3-lbl">Longest Streak</text><text x="352.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#2f80ed">7</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="352.5" y="152" text-anchor="middle" class="c3-cap">Oct 27 – Nov 2</text></g>
 <line x1="25" y1="180" x2="455" y2="180" stroke="#e4e2e2" stroke-width="1"/>
-<g class="c3-stagger" style="animation-delay:750ms"><text x="240.0" y="208" text-anchor="middle"><tspan class="c3-tlbl">Total Contributions </tspan><tspan class="c3-tnum">1,117</tspan><tspan class="c3-cap"> in 2026</tspan></text></g>
+<g class="c3-stagger" style="animation-delay:750ms"><text x="240.0" y="208" text-anchor="middle"><tspan class="c3-tlbl">Total Contributions </tspan><tspan class="c3-tnum">1,110</tspan><tspan class="c3-cap"> in 2026</tspan></text></g>
 
 </g>
 </svg>
