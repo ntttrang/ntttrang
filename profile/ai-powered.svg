@@ -1,4 +1,4 @@
-<svg width="480" viewBox="0 0 480 378" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
+<svg width="480" viewBox="0 0 480 266" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
 <title id="titleId">AI-Powered Projects</title>
 <desc id="descId">2 of 10 public repositories use AI tooling.</desc>
 <style>.h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed}.n{font:800 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}</style>
@@ -17,25 +17,9 @@
 <text x="46" y="196" class="lbl">Cursor</text>
 <rect x="168" y="185" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <text x="455" y="196" text-anchor="end" class="cnt">0</text>
-<circle cx="32" cy="220" r="5" fill="#2ea043"/>
-<text x="46" y="224" class="lbl">Droid</text>
+<circle cx="32" cy="220" r="5" fill="#858585"/>
+<text x="46" y="224" class="lbl">Other AI</text>
 <rect x="168" y="213" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="455" y="224" text-anchor="end" class="cnt">0</text>
-<circle cx="32" cy="248" r="5" fill="#a371f7"/>
-<text x="46" y="252" class="lbl">Kiro</text>
-<rect x="168" y="241" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="455" y="252" text-anchor="end" class="cnt">0</text>
-<circle cx="32" cy="276" r="5" fill="#f0883e"/>
-<text x="46" y="280" class="lbl">Augment Code</text>
-<rect x="168" y="269" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="455" y="280" text-anchor="end" class="cnt">0</text>
-<circle cx="32" cy="304" r="5" fill="#218bff"/>
-<text x="46" y="308" class="lbl">Windsurf</text>
-<rect x="168" y="297" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="455" y="308" text-anchor="end" class="cnt">0</text>
-<circle cx="32" cy="332" r="5" fill="#858585"/>
-<text x="46" y="336" class="lbl">Other AI</text>
-<rect x="168" y="325" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="325" width="200" height="8" rx="4" fill="#858585"/>
-<text x="455" y="336" text-anchor="end" class="cnt">1</text>
+<rect x="168" y="213" width="200" height="8" rx="4" fill="#858585"/>
+<text x="455" y="224" text-anchor="end" class="cnt">1</text>
 </svg>

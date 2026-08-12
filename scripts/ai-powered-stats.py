@@ -8,10 +8,10 @@ per-repository calls. The card is committed to the profile repo by the GitHub
 Actions workflow, so profile views never hit the API at view time.
 
 A repo counts as AI-powered if any of its topics:
-  - matches one of the tracked AI coding tools (Claude Code, Cursor, Droid, Kiro,
-    Augment Code, Windsurf), OR
-  - matches a general AI keyword (ai, genai, llm, gemini, gpt, openai, agent,
-    machine-learning, rag, ...).
+  - matches Claude Code or Cursor (shown as their own rows), OR
+  - matches any other AI signal — a general AI keyword (ai, genai, llm, gemini,
+    gpt, openai, agent, machine-learning, rag, ...) or another AI coding tool
+    (Droid, Kiro, Augment Code, Windsurf) — counted under "Other AI".
 
 Environment:
   GITHUB_TOKEN  GitHub token (PAT or the Actions GITHUB_TOKEN) for auth + rate
@@ -47,10 +47,6 @@ CARD_W = 480
 TOOLS = [
     ("claude", "Claude Code", "#d97757", lambda t: "claude" in t),
     ("cursor", "Cursor", "#4c71f2", lambda t: "cursor" in t),
-    ("droid", "Droid", "#2ea043", lambda t: "droid" in t),
-    ("kiro", "Kiro", "#a371f7", lambda t: "kiro" in t),
-    ("augment", "Augment Code", "#f0883e", lambda t: "augment" in t),
-    ("windsurf", "Windsurf", "#218bff", lambda t: "windsurf" in t or "codeium" in t),
 ]
 OTHER_LABEL = "Other AI"
 OTHER_COLOR = "#858585"
@@ -60,7 +56,7 @@ OTHER_COLOR = "#858585"
 # inside "trail"); distinctive terms are matched as substrings.
 AI_TOKENS = {
     "ai", "ml", "llm", "gpt", "rag", "agent", "agents", "genai", "copilot",
-    "agentic", "ragchain",
+    "agentic", "droid", "kiro", "augment", "windsurf", "codeium",
 }
 AI_SUBSTR = (
     "artificial-intelligence", "machine-learning", "deep-learning", "neural",
@@ -221,8 +217,7 @@ def main():
         print(f"  {name:42s} [{shown}]  -> {tag}")
 
     rows = [(label, color, counts[key]) for key, label, color, _m in TOOLS]
-    if other > 0:
-        rows.append((OTHER_LABEL, OTHER_COLOR, other))
+    rows.append((OTHER_LABEL, OTHER_COLOR, other))
 
     svg = render(total, len(candidates), rows)
     os.makedirs("profile", exist_ok=True)
