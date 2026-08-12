@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compose four stat cards into ONE composite SVG (2-column x 2-row grid).
+"""Compose four stat cards into ONE composite SVG as a clean 2x2 grid.
 
 Reads the four generated cards:
   profile/stats.svg        GitHub Stats
@@ -7,13 +7,22 @@ Reads the four generated cards:
   profile/ai-powered.svg   AI-Powered Projects
   profile/streaks.svg      Streaks
 
-Each card is a standalone SVG with its own <style> block. Nesting four styled
-SVGs in one document would let their CSS classes / @keyframes / element IDs
-collide (the github-readme-stats cards share names like .stat, .header,
-fadeInAnimation, titleId...). So each card is first **namespaced** (every class,
-keyframe and id prefixed with c0-/c1-/...) and then embedded as a nested <svg>
-positioned in a 2x2 grid. The result is a single static image the README can
-reference, keeping the "works anytime" guarantee (no live API at view time).
+The four source cards have very different native aspect ratios (the wide stats
+card vs. the nearly-square top-langs card), so simply tiling them preserves
+those ratios and yields four mismatched rectangles -- an ugly, ragged grid.
+
+To get four IDENTICAL-sized cards, the composer does two things per card:
+  1. strips the card's own background rect (every card marks it with
+     data-testid="card-bg"), and
+  2. scales the remaining CONTENT uniformly (contain) into one fixed-size cell.
+The composer then draws a single uniform background frame for every cell, so all
+four cards end up the exact same width and height -- a clean, aligned 2x2 grid.
+
+Each card also carries its own <style> block, and nesting four styled SVGs in
+one document would let their CSS classes / @keyframes / element ids collide (the
+github-readme-stats cards share names like .stat, .header, fadeInAnimation,
+titleId...). So each card is first **namespaced** (every class, keyframe and id
+prefixed with c0-/c1-/...) before being embedded.
 
 Output:
   profile/overview.svg
@@ -30,7 +39,16 @@ CARDS = [
     ("profile/streaks.svg", "Streaks"),
 ]
 
-CELL_W, CELL_H, GAP = 440, 232, 16
+# Every cell is exactly this size -> all four cards are identical rectangles.
+CELL_W, CELL_H, GAP = 460, 220, 16
+
+# Visual style of the uniform card frame (matches github-readme-stats default).
+BG = "#fffefe"
+BORDER = "#e4e2e2"
+
+# Matches the per-card background rect (self-closing or not, single- or
+# multi-line). Every card marks its bg rect with data-testid="card-bg".
+BG_RECT_RE = re.compile(r'<rect\b[^>]*\bdata-testid="card-bg"[^>]*/?>')
 
 
 def namespace(prefix, css, body):
@@ -97,6 +115,8 @@ def namespace(prefix, css, body):
 
 
 def parse_card(path, idx):
+    """Return (nat_w, nat_h, css, content, prefix). `content` is the card body
+    with its <style> split out and its background rect removed."""
     prefix = f"c{idx}"
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -123,6 +143,7 @@ def parse_card(path, idx):
     else:
         css, body = "", inner
 
+    body = BG_RECT_RE.sub("", body)  # composer draws the uniform frame instead
     css, body = namespace(prefix, css, body)
     return nat_w, nat_h, css, body, prefix
 
@@ -152,19 +173,30 @@ def build():
         col, row = i % 2, i // 2
         cell_x = col * (CELL_W + GAP)
         cell_y = row * (CELL_H + GAP)
+        # Uniform "contain" scale: content stays proportional, no distortion.
         scale = min(CELL_W / nat_w, CELL_H / nat_h)
         disp_w = nat_w * scale
         disp_h = nat_h * scale
-        x = cell_x + (CELL_W - disp_w) / 2
-        y = cell_y + (CELL_H - disp_h) / 2
+        ox = (CELL_W - disp_w) / 2
+        oy = (CELL_H - disp_h) / 2
+
         out.append(
-            f'<svg x="{x:.2f}" y="{y:.2f}" width="{disp_w:.2f}" '
-            f'height="{disp_h:.2f}" viewBox="0 0 {nat_w:g} {nat_h:g}" '
-            f'preserveAspectRatio="xMidYMid meet">'
+            f'<svg x="{cell_x}" y="{cell_y}" width="{CELL_W}" '
+            f'height="{CELL_H}" viewBox="0 0 {CELL_W} {CELL_H}">'
         )
         if css.strip():
             out.append(f"<style>{css}</style>")
+        # The single uniform card frame -- identical for every cell.
+        out.append(
+            f'<rect x="0.5" y="0.5" width="{CELL_W - 1}" height="{CELL_H - 1}" '
+            f'rx="4.5" fill="{BG}" stroke="{BORDER}" stroke-opacity="1"/>'
+        )
+        # Card content, uniformly scaled + centered inside the frame.
+        out.append(
+            f'<g transform="translate({ox:.2f} {oy:.2f}) scale({scale:.4f})">'
+        )
         out.append(body)
+        out.append("</g>")
         out.append("</svg>")
 
     out.append("</svg>")

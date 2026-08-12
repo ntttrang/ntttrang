@@ -3,15 +3,18 @@
 
 Detects AI-powered repositories via their **topic tags** (the labels in a repo's
 "About" section) and renders a static SVG card matching the github-readme-stats
-visual style. Topics come straight from the repo-listing API, so there are no
-per-repository calls. The card is committed to the profile repo by the GitHub
-Actions workflow, so profile views never hit the API at view time.
+visual style -- including the same entrance animations (title fade-in, staggered
+row reveal). The card is committed to the profile repo by the GitHub Actions
+workflow, so profile views never hit the API at view time.
 
 A repo counts as AI-powered if any of its topics:
   - matches Claude Code or Cursor (shown as their own rows), OR
-  - matches any other AI signal — a general AI keyword (ai, genai, llm, gemini,
+  - matches any other AI signal -- a general AI keyword (ai, genai, llm, gemini,
     gpt, openai, agent, machine-learning, rag, ...) or another AI coding tool
-    (Droid, Kiro, Augment Code, Windsurf) — counted under "Other AI".
+    (Droid, Kiro, Augment Code, Windsurf) -- counted under "Other AI".
+
+The card's background rect is tagged data-testid="card-bg" so the composer can
+swap in a uniform frame when merging all cards into one image.
 
 Environment:
   GITHUB_TOKEN  GitHub token (PAT or the Actions GITHUB_TOKEN) for auth + rate
@@ -150,22 +153,27 @@ def render(total, scanned, rows):
         f'<title id="titleId">AI-Powered Projects</title>',
         f'<desc id="descId">{total} of {scanned} public repositories use AI tooling.</desc>',
         (
-            f'<style>.h{{font:600 18px {FONT};fill:{TITLE_COLOR}}}'
+            f'<style>'
+            f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
+            f'.h{{font:600 18px {FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
             f'.n{{font:800 40px {FONT};fill:{TEXT_COLOR}}}'
             f'.cap{{font:600 13px {FONT};fill:{MUTED}}}'
             f'.lbl{{font:600 14px {FONT};fill:{TEXT_COLOR}}}'
             f'.cnt{{font:700 14px {FONT};fill:{TEXT_COLOR}}}'
+            f'.stagger{{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}}'
             f'</style>'
         ),
         f'<rect x="0.5" y="0.5" rx="4.5" height="99%" width="{CARD_W - 1}" '
-        f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1"/>',
+        f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1" data-testid="card-bg"/>',
         robot_icon(),
         f'<text x="60" y="32" class="h">AI-Powered Projects</text>',
+        f'<g class="stagger" style="animation-delay:150ms">'
         f'<text x="{CARD_W / 2}" y="90" text-anchor="middle">'
         f'<tspan class="n">{total}</tspan>'
-        f'<tspan class="cap" dx="8">repos</tspan></text>',
+        f'<tspan class="cap" dx="8">repos</tspan></text>'
         f'<text x="{CARD_W / 2}" y="112" text-anchor="middle" class="cap">'
-        f'{total} of {scanned} public repos tagged with AI topics</text>',
+        f'{total} of {scanned} public repos tagged with AI topics</text>'
+        f'</g>',
         f'<line x1="25" y1="138" x2="{CARD_W - 25}" y2="138" stroke="{BORDER}" stroke-width="1"/>',
     ]
 
@@ -173,15 +181,15 @@ def render(total, scanned, rows):
     max_count = max([1] + [c for _, _, c in rows])
     for i, (label, color, count) in enumerate(rows):
         y = top_y + i * row_h
+        parts.append(f'<g class="stagger" style="animation-delay:{450 + i * 150}ms">')
         parts.append(f'<circle cx="32" cy="{y - 4}" r="5" fill="{color}"/>')
         parts.append(f'<text x="46" y="{y}" class="lbl">{esc(label)}</text>')
         parts.append(f'<rect x="{bar_x}" y="{y - 11}" width="{bar_w}" height="8" rx="4" fill="{TRACK}"/>')
         fill_w = round(bar_w * count / max_count)
         if fill_w > 0:
             parts.append(f'<rect x="{bar_x}" y="{y - 11}" width="{fill_w}" height="8" rx="4" fill="{color}"/>')
-        parts.append(
-            f'<text x="{CARD_W - 25}" y="{y}" text-anchor="end" class="cnt">{count}</text>'
-        )
+        parts.append(f'<text x="{CARD_W - 25}" y="{y}" text-anchor="end" class="cnt">{count}</text>')
+        parts.append("</g>")
 
     parts.append("</svg>")
     return "\n".join(parts)

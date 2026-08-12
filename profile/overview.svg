@@ -1,6 +1,6 @@
-<svg width="896" height="480" viewBox="0 0 896 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ovTitle">
+<svg width="936" height="456" viewBox="0 0 936 456" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ovTitle">
 <title id="ovTitle">Trang Nguyen&#39;s GitHub overview</title>
-<svg x="0.00" y="24.14" width="440.00" height="183.73" viewBox="0 0 467 195" preserveAspectRatio="xMidYMid meet">
+<svg x="0" y="0" width="460" height="220" viewBox="0 0 460 220">
 <style>
           .c0-header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -91,6 +91,8 @@
     
           
         </style>
+<rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
+<g transform="translate(0.00 13.96) scale(0.9850)">
 
         <title id="c0-titleId">Trang Nguyen&#39;s GitHub Stats, Rank: B</title>
         <desc id="c0-descId">Total Stars Earned: 4, Total Commits  (last year) : 146, Total PRs: 50, Total Issues: 207, Contributed to (last year): 2</desc>
@@ -98,17 +100,7 @@
 
         
 
-        <rect
-          data-testid="card-bg"
-          x="0.5"
-          y="0.5"
-          rx="4.5"
-          height="99%"
-          stroke="#e4e2e2"
-          width="466"
-          fill="#fffefe"
-          stroke-opacity="1"
-        />
+        
 
         
       <g
@@ -224,8 +216,9 @@
   
         </g>
       
+</g>
 </svg>
-<svg x="514.14" y="-0.00" width="323.72" height="232.00" viewBox="0 0 300 215" preserveAspectRatio="xMidYMid meet">
+<svg x="476" y="0" width="460" height="220" viewBox="0 0 460 220">
 <style>
           .c1-header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -298,6 +291,8 @@
     
           
         </style>
+<rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
+<g transform="translate(76.51 0.00) scale(1.0233)">
 
         <title id="c1-titleId"></title>
         <desc id="c1-descId"></desc>
@@ -305,17 +300,7 @@
 
         
 
-        <rect
-          data-testid="card-bg"
-          x="0.5"
-          y="0.5"
-          rx="4.5"
-          height="99%"
-          stroke="#e4e2e2"
-          width="299"
-          fill="#fffefe"
-          stroke-opacity="1"
-        />
+        
 
         
       <g
@@ -524,49 +509,61 @@
   
         </g>
       
+</g>
 </svg>
-<svg x="10.68" y="248.00" width="418.65" height="232.00" viewBox="0 0 480 266" preserveAspectRatio="xMidYMid meet">
-<style>.c2-h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed}.c2-n{font:800 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c2-cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c2-lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c2-cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}</style>
+<svg x="0" y="236" width="460" height="220" viewBox="0 0 460 220">
+<style>@keyframes c2-fadeInAnimation{from{opacity:0}to{opacity:1}}.c2-h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed;animation:c2-fadeInAnimation .8s ease-in-out forwards}.c2-n{font:800 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c2-cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c2-lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c2-cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c2-stagger{opacity:0;animation:c2-fadeInAnimation .3s ease-in-out forwards}</style>
+<rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
+<g transform="translate(31.50 0.00) scale(0.8271)">
 
 <title id="c2-titleId">AI-Powered Projects</title>
 <desc id="c2-descId">2 of 10 public repositories use AI tooling.</desc>
 
-<rect x="0.5" y="0.5" rx="4.5" height="99%" width="479" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1"/>
+
 <g transform="translate(28,16)"><line x1="11" y1="0" x2="11" y2="4" stroke="#2f80ed" stroke-width="2"/><circle cx="11" cy="0" r="2.6" fill="#2f80ed"/><rect x="0" y="4" width="22" height="16" rx="4" fill="none" stroke="#2f80ed" stroke-width="2"/><circle cx="6.5" cy="12" r="2" fill="#2f80ed"/><circle cx="15.5" cy="12" r="2" fill="#2f80ed"/></g>
 <text x="60" y="32" class="c2-h">AI-Powered Projects</text>
-<text x="240.0" y="90" text-anchor="middle"><tspan class="c2-n">2</tspan><tspan class="c2-cap" dx="8">repos</tspan></text>
-<text x="240.0" y="112" text-anchor="middle" class="c2-cap">2 of 10 public repos tagged with AI topics</text>
+<g class="c2-stagger" style="animation-delay:150ms"><text x="240.0" y="90" text-anchor="middle"><tspan class="c2-n">2</tspan><tspan class="c2-cap" dx="8">repos</tspan></text><text x="240.0" y="112" text-anchor="middle" class="c2-cap">2 of 10 public repos tagged with AI topics</text></g>
 <line x1="25" y1="138" x2="455" y2="138" stroke="#e4e2e2" stroke-width="1"/>
+<g class="c2-stagger" style="animation-delay:450ms">
 <circle cx="32" cy="164" r="5" fill="#d97757"/>
 <text x="46" y="168" class="c2-lbl">Claude Code</text>
 <rect x="168" y="157" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <rect x="168" y="157" width="200" height="8" rx="4" fill="#d97757"/>
 <text x="455" y="168" text-anchor="end" class="c2-cnt">1</text>
+</g>
+<g class="c2-stagger" style="animation-delay:600ms">
 <circle cx="32" cy="192" r="5" fill="#4c71f2"/>
 <text x="46" y="196" class="c2-lbl">Cursor</text>
 <rect x="168" y="185" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <text x="455" y="196" text-anchor="end" class="c2-cnt">0</text>
+</g>
+<g class="c2-stagger" style="animation-delay:750ms">
 <circle cx="32" cy="220" r="5" fill="#858585"/>
 <text x="46" y="224" class="c2-lbl">Other AI</text>
 <rect x="168" y="213" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <rect x="168" y="213" width="200" height="8" rx="4" fill="#858585"/>
 <text x="455" y="224" text-anchor="end" class="c2-cnt">1</text>
+</g>
 
+</g>
 </svg>
-<svg x="456.00" y="257.67" width="440.00" height="212.67" viewBox="0 0 480 232" preserveAspectRatio="xMidYMid meet">
-<style>.c3-h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed}.c3-lbl{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-num{font:800 30px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-unit{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-cap{font:400 10.5px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-tlbl{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-tnum{font:700 16px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}</style>
+<svg x="476" y="236" width="460" height="220" viewBox="0 0 460 220">
+<style>@keyframes c3-fadeInAnimation{from{opacity:0}to{opacity:1}}.c3-h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed;animation:c3-fadeInAnimation .8s ease-in-out forwards}.c3-lbl{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-num{font:800 30px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-unit{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-cap{font:400 10.5px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-tlbl{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-tnum{font:700 16px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-stagger{opacity:0;animation:c3-fadeInAnimation .3s ease-in-out forwards}</style>
+<rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
+<g transform="translate(2.41 0.00) scale(0.9483)">
 
 <title id="c3-titleId">Streak Stats</title>
-<desc id="c3-descId">Current streak 3 days, longest streak 7 days, 1,110 contributions in 2026.</desc>
+<desc id="c3-descId">Current streak 4 days, longest streak 7 days, 1,117 contributions in 2026.</desc>
 
-<rect x="0.5" y="0.5" rx="4.5" height="99%" width="479" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1"/>
+
 <g transform="translate(24,11) scale(0.82)"><path d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 8.287 8.287 0 0 0 9 9.6a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48z" fill="#ff6b35"/><path d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18z" fill="#ffd166"/></g>
 <text x="52" y="33" class="c3-h">Streak Stats</text>
 <line x1="25" y1="52" x2="455" y2="52" stroke="#e4e2e2" stroke-width="1"/>
-<rect x="25" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="127.5" y="89" text-anchor="middle" class="c3-lbl">Current Streak</text><text x="127.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#ff6b35">3</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="127.5" y="152" text-anchor="middle" class="c3-cap">Aug 10 – Aug 12</text>
-<rect x="250" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="352.5" y="89" text-anchor="middle" class="c3-lbl">Longest Streak</text><text x="352.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#2f80ed">7</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="352.5" y="152" text-anchor="middle" class="c3-cap">Oct 27 – Nov 2</text>
+<g class="c3-stagger" style="animation-delay:450ms"><rect x="25" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="127.5" y="89" text-anchor="middle" class="c3-lbl">Current Streak</text><text x="127.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#ff6b35">4</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="127.5" y="152" text-anchor="middle" class="c3-cap">Aug 10 – Aug 13</text></g>
+<g class="c3-stagger" style="animation-delay:600ms"><rect x="250" y="66" width="205" height="98" rx="8" fill="#f6f8fa" stroke="#e4e2e2"/><text x="352.5" y="89" text-anchor="middle" class="c3-lbl">Longest Streak</text><text x="352.5" y="130" text-anchor="middle"><tspan class="c3-num" fill="#2f80ed">7</tspan><tspan class="c3-unit" dx="6">days</tspan></text><text x="352.5" y="152" text-anchor="middle" class="c3-cap">Oct 27 – Nov 2</text></g>
 <line x1="25" y1="180" x2="455" y2="180" stroke="#e4e2e2" stroke-width="1"/>
-<text x="240.0" y="208" text-anchor="middle"><tspan class="c3-tlbl">Total Contributions </tspan><tspan class="c3-tnum">1,110</tspan><tspan class="c3-cap"> in 2026</tspan></text>
+<g class="c3-stagger" style="animation-delay:750ms"><text x="240.0" y="208" text-anchor="middle"><tspan class="c3-tlbl">Total Contributions </tspan><tspan class="c3-tnum">1,117</tspan><tspan class="c3-cap"> in 2026</tspan></text></g>
 
+</g>
 </svg>
 </svg>

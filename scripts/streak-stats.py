@@ -2,15 +2,19 @@
 """Generate a "Streak Stats" SVG card for a GitHub profile README.
 
 Reads the owner's contribution calendar via the GraphQL API and computes the
-current streak, the longest streak, and the yearly contribution total — then
-renders a static SVG card matching the github-readme-stats visual style. The
-card is committed to the profile repo by the GitHub Actions workflow, so profile
-views never hit the API at view time (same "works anytime" approach as the other
-cards).
+current streak, the longest streak, and the yearly contribution total -- then
+renders a static SVG card matching the github-readme-stats visual style,
+including the same entrance animations (title fade-in, staggered box reveal).
+The card is committed to the profile repo by the GitHub Actions workflow, so
+profile views never hit the API at view time (same "works anytime" approach as
+the other cards).
 
 The contribution calendar is read with the workflow's GITHUB_TOKEN. If that
 token cannot read contributionsCollection, the card degrades gracefully
 (placeholder dashes) instead of breaking the composite image.
+
+The card's background rect is tagged data-testid="card-bg" so the composer can
+swap in a uniform frame when merging all cards into one image.
 
 Environment:
   GITHUB_TOKEN  GitHub token (PAT or the Actions GITHUB_TOKEN).
@@ -225,27 +229,32 @@ def render(s, total, year, available):
         f'<desc id="descId">Current streak {cur_txt} days, longest streak '
         f'{best_txt} days, {total_txt} contributions in {year}.</desc>',
         (
-            f'<style>.h{{font:600 18px {FONT};fill:{TITLE_COLOR}}}'
+            f'<style>'
+            f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
+            f'.h{{font:600 18px {FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
             f'.lbl{{font:600 12px {FONT};fill:{MUTED}}}'
             f'.num{{font:800 30px {FONT};fill:{TEXT_COLOR}}}'
             f'.unit{{font:600 12px {FONT};fill:{MUTED}}}'
             f'.cap{{font:400 10.5px {FONT};fill:{MUTED}}}'
             f'.tlbl{{font:600 13px {FONT};fill:{MUTED}}}'
             f'.tnum{{font:700 16px {FONT};fill:{TEXT_COLOR}}}'
+            f'.stagger{{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}}'
             f'</style>'
         ),
         f'<rect x="0.5" y="0.5" rx="4.5" height="99%" width="{CARD_W - 1}" '
-        f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1"/>',
+        f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1" data-testid="card-bg"/>',
         flame_icon(),
         f'<text x="52" y="33" class="h">Streak Stats</text>',
         f'<line x1="25" y1="52" x2="{CARD_W - 25}" y2="52" stroke="{BORDER}" stroke-width="1"/>',
-        stat_box(left_x, box_w, "Current Streak", cur_txt, FLAME, cur_cap),
-        stat_box(right_x, box_w, "Longest Streak", best_txt, TITLE_COLOR, best_cap),
+        f'<g class="stagger" style="animation-delay:450ms">' + stat_box(left_x, box_w, "Current Streak", cur_txt, FLAME, cur_cap) + '</g>',
+        f'<g class="stagger" style="animation-delay:600ms">' + stat_box(right_x, box_w, "Longest Streak", best_txt, TITLE_COLOR, best_cap) + '</g>',
         f'<line x1="25" y1="180" x2="{CARD_W - 25}" y2="180" stroke="{BORDER}" stroke-width="1"/>',
+        f'<g class="stagger" style="animation-delay:750ms">'
         f'<text x="{CARD_W / 2}" y="208" text-anchor="middle">'
         f'<tspan class="tlbl">Total Contributions </tspan>'
         f'<tspan class="tnum">{total_txt}</tspan>'
-        f'<tspan class="cap"> in {year}</tspan></text>',
+        f'<tspan class="cap"> in {year}</tspan></text>'
+        f'</g>',
     ]
     if not available:
         parts.append(
