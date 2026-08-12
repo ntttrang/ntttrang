@@ -44,7 +44,13 @@ MUTED = "#858585"
 FLAME = "#ff6b35"
 FLAME_INNER = "#ffd166"
 FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif"
-CARD_W = 480
+# github-readme-stats titles use this shorter stack (no "Helvetica Neue") plus a
+# Firefox font-size override. Match it so the title matches the other cards.
+TITLE_FONT = "'Segoe UI', Ubuntu, Sans-Serif"
+# Native size matches the composer's cell (460 wide, <=220 tall) so the card is
+# embedded at scale 1.0 -- its title/body text then renders at the same displayed
+# size as the github-readme-stats cards (which also sit near scale 1.0).
+CARD_W = 460
 
 QUERY = """
 query($login: String!) {
@@ -207,7 +213,7 @@ def stat_box(x, w, label, value, value_color, caption):
 
 
 def render(s, total, year, available):
-    height = 232
+    height = 216
     cur = s["current"] if s else 0
     best = s["longest"] if s else 0
     cur_cap = range_str(s["current_start"], s["current_end"]) if s else ""
@@ -217,7 +223,7 @@ def render(s, total, year, available):
     total_txt = f"{total:,}" if available else "—"
     cap_note = "" if available else "contribution data unavailable"
 
-    box_w = 205
+    box_w = 200
     left_x = 25
     right_x = CARD_W - 25 - box_w
 
@@ -231,7 +237,8 @@ def render(s, total, year, available):
         (
             f'<style>'
             f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
-            f'.h{{font:600 18px {FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
+            f'.h{{font:600 18px {TITLE_FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
+            f'@supports(-moz-appearance:auto){{.h{{font-size:15.5px}}}}'
             f'.lbl{{font:600 12px {FONT};fill:{MUTED}}}'
             f'.num{{font:800 30px {FONT};fill:{TEXT_COLOR}}}'
             f'.unit{{font:600 12px {FONT};fill:{MUTED}}}'
@@ -248,9 +255,9 @@ def render(s, total, year, available):
         f'<line x1="25" y1="52" x2="{CARD_W - 25}" y2="52" stroke="{BORDER}" stroke-width="1"/>',
         f'<g class="stagger" style="animation-delay:450ms">' + stat_box(left_x, box_w, "Current Streak", cur_txt, FLAME, cur_cap) + '</g>',
         f'<g class="stagger" style="animation-delay:600ms">' + stat_box(right_x, box_w, "Longest Streak", best_txt, TITLE_COLOR, best_cap) + '</g>',
-        f'<line x1="25" y1="180" x2="{CARD_W - 25}" y2="180" stroke="{BORDER}" stroke-width="1"/>',
+        f'<line x1="25" y1="172" x2="{CARD_W - 25}" y2="172" stroke="{BORDER}" stroke-width="1"/>',
         f'<g class="stagger" style="animation-delay:750ms">'
-        f'<text x="{CARD_W / 2}" y="208" text-anchor="middle">'
+        f'<text x="{CARD_W / 2}" y="196" text-anchor="middle">'
         f'<tspan class="tlbl">Total Contributions </tspan>'
         f'<tspan class="tnum">{total_txt}</tspan>'
         f'<tspan class="cap"> in {year}</tspan></text>'
@@ -258,7 +265,7 @@ def render(s, total, year, available):
     ]
     if not available:
         parts.append(
-            f'<text x="{CARD_W / 2}" y="224" text-anchor="middle" class="cap">{esc(cap_note)}</text>'
+            f'<text x="{CARD_W / 2}" y="210" text-anchor="middle" class="cap">{esc(cap_note)}</text>'
         )
     parts.append("</svg>")
     return "\n".join(parts)

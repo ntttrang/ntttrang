@@ -43,7 +43,13 @@ TEXT_COLOR = "#434d58"
 MUTED = "#858585"
 TRACK = "#e4e2e2"
 FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif"
-CARD_W = 480
+# github-readme-stats titles use this shorter stack (no "Helvetica Neue") plus a
+# Firefox font-size override. Match it so the title matches the other cards.
+TITLE_FONT = "'Segoe UI', Ubuntu, Sans-Serif"
+# Native size matches the composer's cell (460 wide, <=220 tall) so the card is
+# embedded at scale 1.0 -- its title/body text then renders at the same displayed
+# size as the github-readme-stats cards (which also sit near scale 1.0).
+CARD_W = 460
 
 # --- Tracked AI coding tools --------------------------------------------------
 # (key, label, color, matcher). matcher(lowercased_topic) -> bool.
@@ -144,9 +150,9 @@ def robot_icon():
 
 def render(total, scanned, rows):
     """rows: list of (label, color, count) in display order."""
-    row_h = 28
-    top_y = 168
-    height = top_y + len(rows) * row_h + 14
+    row_h = 24
+    top_y = 130
+    height = top_y + len(rows) * row_h + 10
     parts = [
         f'<svg width="{CARD_W}" viewBox="0 0 {CARD_W} {height}" fill="none" '
         f'xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">',
@@ -155,8 +161,9 @@ def render(total, scanned, rows):
         (
             f'<style>'
             f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
-            f'.h{{font:600 18px {FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
-            f'.n{{font:800 40px {FONT};fill:{TEXT_COLOR}}}'
+            f'.h{{font:600 18px {TITLE_FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
+            f'@supports(-moz-appearance:auto){{.h{{font-size:15.5px}}}}'
+            f'.n{{font:800 36px {FONT};fill:{TEXT_COLOR}}}'
             f'.cap{{font:600 13px {FONT};fill:{MUTED}}}'
             f'.lbl{{font:600 14px {FONT};fill:{TEXT_COLOR}}}'
             f'.cnt{{font:700 14px {FONT};fill:{TEXT_COLOR}}}'
@@ -168,13 +175,13 @@ def render(total, scanned, rows):
         robot_icon(),
         f'<text x="60" y="32" class="h">AI-Powered Projects</text>',
         f'<g class="stagger" style="animation-delay:150ms">'
-        f'<text x="{CARD_W / 2}" y="90" text-anchor="middle">'
+        f'<text x="{CARD_W / 2}" y="74" text-anchor="middle">'
         f'<tspan class="n">{total}</tspan>'
         f'<tspan class="cap" dx="8">repos</tspan></text>'
-        f'<text x="{CARD_W / 2}" y="112" text-anchor="middle" class="cap">'
+        f'<text x="{CARD_W / 2}" y="94" text-anchor="middle" class="cap">'
         f'{total} of {scanned} public repos tagged with AI topics</text>'
         f'</g>',
-        f'<line x1="25" y1="138" x2="{CARD_W - 25}" y2="138" stroke="{BORDER}" stroke-width="1"/>',
+        f'<line x1="25" y1="112" x2="{CARD_W - 25}" y2="112" stroke="{BORDER}" stroke-width="1"/>',
     ]
 
     bar_x, bar_w = 168, 200
