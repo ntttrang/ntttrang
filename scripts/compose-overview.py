@@ -31,12 +31,12 @@ import os
 import re
 import sys
 
-# (path, label) in grid order: row0 = Stats | Languages, row1 = AI | Streaks
+# (path, label) in grid order: row0 = Stats | Languages, row1 = Streaks | AI
 CARDS = [
     ("profile/stats.svg", "GitHub Stats"),
     ("profile/top-langs.svg", "Most Used Languages"),
-    ("profile/ai-powered.svg", "AI-Powered Projects"),
     ("profile/streaks.svg", "Streaks"),
+    ("profile/ai-powered.svg", "AI-Powered Projects"),
 ]
 
 # Every cell is exactly this size -> all four cards are identical rectangles.
