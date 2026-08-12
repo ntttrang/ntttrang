@@ -335,7 +335,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="186.97"
+          width="187.01"
           height="8"
           fill="#00ADD8"
         />
@@ -343,9 +343,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="186.97"
+          x="187.01"
           y="0"
-          width="151.17"
+          width="151.2"
           height="8"
           fill="#3178c6"
         />
@@ -353,9 +353,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="338.14"
+          x="338.21"
           y="0"
-          width="25.71"
+          width="25.62"
           height="8"
           fill="#3572A5"
         />
@@ -363,9 +363,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="363.84999999999997"
+          x="363.83"
           y="0"
-          width="16.07"
+          width="16.08"
           height="8"
           fill="#e34c26"
         />
@@ -373,7 +373,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="379.91999999999996"
+          x="379.90999999999997"
           y="0"
           width="11.67"
           height="8"
@@ -383,7 +383,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="391.59"
+          x="391.58"
           y="0"
           width="18.990000000000002"
           height="8"
@@ -393,7 +393,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="400.58"
+          x="400.57"
           y="0"
           width="16.22"
           height="8"
@@ -403,7 +403,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="406.8"
+          x="406.79"
           y="0"
           width="12.03"
           height="8"
@@ -413,7 +413,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="408.83"
+          x="408.82"
           y="0"
           width="10.86"
           height="8"
@@ -423,7 +423,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="409.69"
+          x="409.68"
           y="0"
           width="10.3"
           height="8"
@@ -436,21 +436,21 @@
     <g class="c1-stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#00ADD8" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Go 45.60%
+        Go 45.61%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="c1-stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        TypeScript 36.87%
+        TypeScript 36.88%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="c1-stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Python 6.27%
+        Python 6.25%
       </text>
     </g>
   </g><g transform="translate(0, 75)">
@@ -533,14 +533,13 @@
 <svg x="476" y="236" width="460" height="220" viewBox="0 0 460 220">
 <style>@keyframes c3-fadeInAnimation{from{opacity:0}to{opacity:1}}.c3-h{font:600 18px 'Segoe UI', Ubuntu, Sans-Serif;fill:#2f80ed;animation:c3-fadeInAnimation .8s ease-in-out forwards}@supports(-moz-appearance:auto){.c3-h{font-size:15.5px}}.c3-n{font:800 36px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.c3-lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.c3-stagger{opacity:0;animation:c3-fadeInAnimation .3s ease-in-out forwards}</style>
 <rect x="0.5" y="0.5" width="459" height="219" rx="4.5" fill="#fffefe" stroke="#e4e2e2" stroke-opacity="1"/>
-<g transform="translate(0.00 4.00) scale(1.0000)">
+<g transform="translate(0.00 2.50) scale(1.0000)">
 
 <title id="c3-titleId">AI-Powered Projects</title>
 <desc id="c3-descId">2 of 10 public repositories use AI tooling.</desc>
 
 
-<g transform="translate(28,16)"><line x1="11" y1="0" x2="11" y2="4" stroke="#2f80ed" stroke-width="2"/><circle cx="11" cy="0" r="2.6" fill="#2f80ed"/><rect x="0" y="4" width="22" height="16" rx="4" fill="none" stroke="#2f80ed" stroke-width="2"/><circle cx="6.5" cy="12" r="2" fill="#2f80ed"/><circle cx="15.5" cy="12" r="2" fill="#2f80ed"/></g>
-<text x="60" y="32" class="c3-h">AI-Powered Projects</text>
+<text x="25" y="35" class="c3-h">AI-Powered Projects</text>
 <g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">2</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">2 of 10 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="c3-stagger" style="animation-delay:450ms">
@@ -551,17 +550,17 @@
 <text x="435" y="130" text-anchor="end" class="c3-cnt">1</text>
 </g>
 <g class="c3-stagger" style="animation-delay:600ms">
-<circle cx="32" cy="150" r="5" fill="#4c71f2"/>
-<text x="46" y="154" class="c3-lbl">Cursor</text>
-<rect x="168" y="143" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="435" y="154" text-anchor="end" class="c3-cnt">0</text>
+<circle cx="32" cy="151" r="5" fill="#4c71f2"/>
+<text x="46" y="155" class="c3-lbl">Cursor</text>
+<rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
+<text x="435" y="155" text-anchor="end" class="c3-cnt">0</text>
 </g>
 <g class="c3-stagger" style="animation-delay:750ms">
-<circle cx="32" cy="174" r="5" fill="#858585"/>
-<text x="46" y="178" class="c3-lbl">Other AI</text>
-<rect x="168" y="167" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="167" width="200" height="8" rx="4" fill="#858585"/>
-<text x="435" y="178" text-anchor="end" class="c3-cnt">1</text>
+<circle cx="32" cy="176" r="5" fill="#858585"/>
+<text x="46" y="180" class="c3-lbl">Other AI</text>
+<rect x="168" y="169" width="200" height="8" rx="4" fill="#e4e2e2"/>
+<rect x="168" y="169" width="200" height="8" rx="4" fill="#858585"/>
+<text x="435" y="180" text-anchor="end" class="c3-cnt">1</text>
 </g>
 
 </g>
