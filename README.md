@@ -1,10 +1,8 @@
 <h3 style="color: #0969da;"> Hi, I'm Trang 👋</h3>
 
-I'll be happy to meet you more! 😊 <br>
-👩🏻 I'm currently working as a Backend Software Engineer.<br>
-⚡ Engineered Microservices in Golang and Java, leveraging gRPC and RESTful APIs with MySQL. <br>
-⚙️ Familiarity with essential AWS services (EC2, S3, Lambda) and DevOps tools (Jenkins, Jaeger, Promethesus, Grafana, ELK - Elasticsearch, Logstash, Kibana). <br>
-🤝 I'm looking to collaborate on projects at the intersection of Golang, scalable Cloud solutions, and applied AI.
+I'll be happy to meet you more! 😊
+
+**Senior Software Engineer** who loves building resilient, high-throughput backend systems in **Golang**. I'm passionate about **banking & payment systems**, where reliability and clean architecture truly matter. What excites me most is **AI-assisted development** — using **Cursor, Claude Code, and AI Skills** to move faster, test smarter, and debug effortlessly. My day-to-day spans **microservices, REST/gRPC APIs, distributed systems**, and observability across **AWS and CI/CD**. Above all, I love turning an idea from a blank canvas into **production-ready software**.
 
 
 <p align="left">
@@ -12,6 +10,8 @@ I'll be happy to meet you more! 😊 <br>
     <img src="./profile/stats.svg" alt="Trang's GitHub stats" />
   </a>
   <img src="./profile/top-langs.svg" alt="Top Langs" />
+  <br/>
+  <img src="./profile/ai-powered.svg" alt="AI-Powered Projects" />
 </p>
 
 

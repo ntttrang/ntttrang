@@ -1,0 +1,28 @@
+<svg width="480" viewBox="0 0 480 290" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
+<title id="titleId">AI-Powered Projects</title>
+<desc id="descId">3 repositories using AI tooling (Cursor 3, Claude 0, Agent 0, AgentKit 0).</desc>
+<style>.h{font:600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#2f80ed}.n{font:800 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cap{font:600 16px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}</style>
+<rect x="0.5" y="0.5" rx="4.5" height="99%" width="479" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1"/>
+<g transform="translate(28,16)"><line x1="11" y1="0" x2="11" y2="4" stroke="#2f80ed" stroke-width="2"/><circle cx="11" cy="0" r="2.6" fill="#2f80ed"/><rect x="0" y="4" width="22" height="16" rx="4" fill="none" stroke="#2f80ed" stroke-width="2"/><circle cx="6.5" cy="12" r="2" fill="#2f80ed"/><circle cx="15.5" cy="12" r="2" fill="#2f80ed"/></g>
+<text x="60" y="32" class="h">AI-Powered Projects</text>
+<text x="240.0" y="86" text-anchor="middle"><tspan class="n">3</tspan><tspan class="cap" dx="8">repos</tspan></text>
+<text x="240.0" y="108" text-anchor="middle" class="cap" style="font-size:12px">powered by AI tooling</text>
+<line x1="25" y1="128" x2="455" y2="128" stroke="#e4e2e2" stroke-width="1"/>
+<circle cx="32" cy="155" r="5" fill="#4c71f2"/>
+<text x="46" y="160" class="lbl">Cursor</text>
+<rect x="150" y="148" width="210" height="8" rx="4" fill="#e4e2e2"/>
+<rect x="150" y="148" width="210" height="8" rx="4" fill="#4c71f2"/>
+<text x="455" y="160" text-anchor="end" class="cnt">3</text>
+<circle cx="32" cy="189" r="5" fill="#d97757"/>
+<text x="46" y="194" class="lbl">Claude</text>
+<rect x="150" y="182" width="210" height="8" rx="4" fill="#e4e2e2"/>
+<text x="455" y="194" text-anchor="end" class="cnt">0</text>
+<circle cx="32" cy="223" r="5" fill="#2ea043"/>
+<text x="46" y="228" class="lbl">Agent</text>
+<rect x="150" y="216" width="210" height="8" rx="4" fill="#e4e2e2"/>
+<text x="455" y="228" text-anchor="end" class="cnt">0</text>
+<circle cx="32" cy="257" r="5" fill="#a371f7"/>
+<text x="46" y="262" class="lbl">AgentKit</text>
+<rect x="150" y="250" width="210" height="8" rx="4" fill="#e4e2e2"/>
+<text x="455" y="262" text-anchor="end" class="cnt">0</text>
+</svg>
