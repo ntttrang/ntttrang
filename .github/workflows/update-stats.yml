@@ -40,7 +40,7 @@ jobs:
         uses: readme-tools/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: "username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default"
+          options: "username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default&card_width=460"
           path: profile/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
