@@ -136,21 +136,9 @@ def esc(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def robot_icon():
-    return (
-        '<g transform="translate(28,16)">'
-        '<line x1="11" y1="0" x2="11" y2="4" stroke="#2f80ed" stroke-width="2"/>'
-        '<circle cx="11" cy="0" r="2.6" fill="#2f80ed"/>'
-        '<rect x="0" y="4" width="22" height="16" rx="4" fill="none" stroke="#2f80ed" stroke-width="2"/>'
-        '<circle cx="6.5" cy="12" r="2" fill="#2f80ed"/>'
-        '<circle cx="15.5" cy="12" r="2" fill="#2f80ed"/>'
-        "</g>"
-    )
-
-
 def render(total, scanned, rows):
     """rows: list of (label, color, count) in display order."""
-    row_h = 24
+    row_h = 25
     top_y = 130
     height = top_y + len(rows) * row_h + 10
     parts = [
@@ -172,8 +160,7 @@ def render(total, scanned, rows):
         ),
         f'<rect x="0.5" y="0.5" rx="4.5" height="99%" width="{CARD_W - 1}" '
         f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1" data-testid="card-bg"/>',
-        robot_icon(),
-        f'<text x="60" y="32" class="h">AI-Powered Projects</text>',
+        f'<text x="25" y="35" class="h">AI-Powered Projects</text>',
         f'<g class="stagger" style="animation-delay:150ms">'
         f'<text x="{CARD_W / 2}" y="74" text-anchor="middle">'
         f'<tspan class="n">{total}</tspan>'
