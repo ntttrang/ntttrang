@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/update-stats.yml'   # re-run only when this file changes
       - 'README.md'
+      - 'scripts/ai-powered-stats.py'
   schedule:
     - cron: "17 3 * * *"                         # daily ~03:17 UTC (off the :00 herd)
   workflow_dispatch:                             # manual "Run workflow" button
