@@ -26,10 +26,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
 
       - name: Generate stats card
-        uses: readme-tools/github-readme-stats-action@v2
+        uses: readme-tools/github-readme-stats-action@e856fc8de9d7729b463c468911e232cfbdc3d55e  # v2
         with:
           card: stats
           options: "username=ntttrang&show_icons=true&theme=default"
@@ -37,7 +37,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate top-languages card
-        uses: readme-tools/github-readme-stats-action@v2
+        uses: readme-tools/github-readme-stats-action@e856fc8de9d7729b463c468911e232cfbdc3d55e  # v2
         with:
           card: top-langs
           options: "username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default&card_width=460"
