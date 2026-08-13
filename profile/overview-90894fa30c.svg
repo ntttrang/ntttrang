@@ -536,11 +536,11 @@
 <g transform="translate(0.00 2.50) scale(1.0000)">
 
 <title id="c3-titleId">AI-enabled Projects</title>
-<desc id="c3-descId">1 of 10 public repositories use AI tooling.</desc>
+<desc id="c3-descId">2 of 10 public repositories use AI tooling.</desc>
 
 
 <text x="25" y="35" class="c3-h">AI-enabled Projects</text>
-<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">1</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">1 of 10 public repos tagged with AI topics</text></g>
+<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">2</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">2 of 10 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="c3-stagger" style="animation-delay:450ms">
 <circle cx="32" cy="126" r="5" fill="#d97757"/>
@@ -553,7 +553,7 @@
 <text x="46" y="155" class="c3-lbl">Cursor</text>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#4c71f2"/>
-<text x="435" y="155" text-anchor="end" class="c3-cnt">1</text>
+<text x="435" y="155" text-anchor="end" class="c3-cnt">2</text>
 </g>
 <g class="c3-stagger" style="animation-delay:750ms">
 <circle cx="32" cy="176" r="5" fill="#858585"/>
