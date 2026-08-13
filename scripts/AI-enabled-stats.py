@@ -45,7 +45,7 @@ API = "https://api.github.com"
 OWNER = os.environ.get("OWNER") or "ntttrang"
 TOKEN = os.environ.get("GITHUB_TOKEN") or ""
 
-# --- Visual style (matches github-readme-stats default theme) -----------------
+# --- Visual style (text classes mirror the Streak Stats card) -----------------
 BG = "#fffefe"
 BORDER = "#e4e2e2"
 TITLE_COLOR = "#2f80ed"
@@ -226,10 +226,11 @@ def render(total, scanned, rows):
             f'.h{{font:600 18px {TITLE_FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
             f'@supports(-moz-appearance:auto){{.h{{font-size:15.5px}}}}'
             f'.icon{{fill:{TITLE_COLOR};display:block;animation:fadeInAnimation .8s ease-in-out forwards}}'
-            f'.n{{font:800 36px {FONT};fill:{TEXT_COLOR}}}'
-            f'.cap{{font:600 13px {FONT};fill:{MUTED}}}'
-            f'.lbl{{font:400 11px "Segoe UI", Ubuntu, Sans-Serif;fill:{TEXT_COLOR}}}'
-            f'.cnt{{font:400 11px "Segoe UI", Ubuntu, Sans-Serif;fill:{TEXT_COLOR}}}'
+            f'.num{{font:800 30px {FONT};fill:{TEXT_COLOR}}}'
+            f'.unit{{font:600 12px {FONT};fill:{MUTED}}}'
+            f'.cap{{font:400 10.5px {FONT};fill:{MUTED}}}'
+            f'.lbl{{font:600 12px {FONT};fill:{MUTED}}}'
+            f'.cnt{{font:600 12px {FONT};fill:{TEXT_COLOR}}}'
             f'.stagger{{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}}'
             f'</style>'
         ),
@@ -249,19 +250,21 @@ def render(total, scanned, rows):
         ),
         f'<g class="stagger" style="animation-delay:150ms">'
         f'<text x="{CARD_W / 2}" y="74" text-anchor="middle">'
-        f'<tspan class="n">{total}</tspan>'
-        f'<tspan class="cap" dx="8">repos</tspan></text>'
+        f'<tspan class="num">{total}</tspan>'
+        f'<tspan class="unit" dx="8">repos</tspan></text>'
         f'<text x="{CARD_W / 2}" y="94" text-anchor="middle" class="cap">'
         f'{total} of {scanned} public repos tagged with AI topics</text>'
         f'</g>',
         f'<line x1="25" y1="112" x2="{CARD_W - 25}" y2="112" stroke="{BORDER}" stroke-width="1"/>',
     ]
 
-    # Bar sits just past the label column. Labels use the lang-name style (11px)
-    # like the "Most Used Languages" card, so the longest ("AI-Powered Features")
-    # ends ~x144; bar_x=158 clears it. The track rect is drawn AFTER the label
-    # text, so this clearance keeps it from clipping the label's tail.
-    bar_x, bar_w = 158, 250
+    # Bar sits just past the label column. Labels mirror the Streak Stats card
+    # (.lbl = 12px semibold), which is wider than the old 11px lang-name style,
+    # so the longest ("Other AI Assistants") needs more room; bar_x clears it
+    # with margin to spare. The track rect is drawn AFTER the label text, so
+    # this clearance keeps it from clipping the label's tail. bar_w leaves room
+    # for the right-aligned count (up to two digits) before the 25px padding.
+    bar_x, bar_w = 180, 235
     max_count = max([1] + [c for _, _, c in rows])
     last = len(rows) - 1
     y = top_y

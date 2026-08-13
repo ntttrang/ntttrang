@@ -14,15 +14,3 @@
     <img src="./profile/overview-ca84edbd7c.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
   </a>
 </p>
-
-<details>
-  <summary><b>🤖 AI-enabled — how these projects use AI</b></summary>
-
-  - **Claude Code** — repo phát triển chủ yếu với Claude Code.
-  - **Cursor** — repo phát triển chủ yếu với Cursor.
-  - **Other AI Assistants** — Codex, Kiro, Droid và các coding agent/assistant khác.
-  - **AI-Powered Features** — sản phẩm có feature AI cho người dùng hoặc hệ thống sử dụng trực tiếp, như OCR, RAG, chatbot, classification, extraction, agent workflow.
-
-</details>
-
-
