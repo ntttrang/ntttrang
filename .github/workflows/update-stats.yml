@@ -80,7 +80,14 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/*.svg README.md
+          # Nothing staged -> nothing to do (e.g. a run where no card changed).
+          if git diff --cached --quiet; then
+            echo "nothing to commit"; exit 0
+          fi
+          git commit -m "chore: update GitHub stats cards [skip ci]"
           # [skip ci] so this bot commit does not re-trigger the workflow
           # (README.md is a push-trigger path -> would otherwise loop).
-          git commit -m "chore: update GitHub stats cards [skip ci]" || exit 0
+          # Rebase onto latest main: a concurrent run may have pushed since
+          # checkout, which would otherwise reject this push (non-fast-forward).
+          git pull --rebase origin main
           git push
