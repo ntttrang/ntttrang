@@ -59,10 +59,28 @@ jobs:
       - name: Compose overview (combine all cards into one image)
         run: python3 scripts/compose-overview.py
 
+      - name: Bust README image cache
+        # Append a content-hash query (?v=...) to the README's overview <img>.
+        # A new URL forces browsers / GitHub's CDN to fetch fresh bytes instead
+        # of serving a stale cached copy. Re-derived from overview.svg each run,
+        # so it only changes when the card actually changes (no churn otherwise).
+        run: |
+          python3 - <<'PY'
+          import hashlib, re, pathlib
+          h = hashlib.sha1(pathlib.Path("profile/overview.svg").read_bytes()).hexdigest()[:10]
+          p = pathlib.Path("README.md"); s = p.read_text()
+          s2, n = re.subn(r'(src="\./profile/overview\.svg)(\?v=[0-9a-f]+)?(")',
+                          lambda m: f'{m[1]}?v={h}{m[3]}', s)
+          p.write_text(s2)
+          print(f"set overview.svg cache-bust ?v={h} (replacements={n})")
+          PY
+
       - name: Commit cards
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/*.svg
-          git commit -m "chore: update GitHub stats cards" || exit 0
+          git add profile/*.svg README.md
+          # [skip ci] so this bot commit does not re-trigger the workflow
+          # (README.md is a push-trigger path -> would otherwise loop).
+          git commit -m "chore: update GitHub stats cards [skip ci]" || exit 0
           git push
