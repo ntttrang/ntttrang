@@ -1,10 +1,10 @@
 <svg width="460" viewBox="0 0 460 215" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
 <title id="titleId">AI-enabled Projects</title>
-<desc id="descId">2 of 10 public repositories use AI tooling.</desc>
+<desc id="descId">1 of 10 public repositories use AI tooling.</desc>
 <style>@keyframes fadeInAnimation{from{opacity:0}to{opacity:1}}.h{font:600 18px 'Segoe UI', Ubuntu, Sans-Serif;fill:#2f80ed;animation:fadeInAnimation .8s ease-in-out forwards}@supports(-moz-appearance:auto){.h{font-size:15.5px}}.n{font:800 36px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.stagger{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}</style>
 <rect x="0.5" y="0.5" rx="4.5" height="99%" width="459" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1" data-testid="card-bg"/>
 <text x="25" y="35" class="h">AI-enabled Projects</text>
-<g class="stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="n">2</tspan><tspan class="cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="cap">2 of 10 public repos tagged with AI topics</text></g>
+<g class="stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="n">1</tspan><tspan class="cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="cap">1 of 10 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="stagger" style="animation-delay:450ms">
 <circle cx="32" cy="126" r="5" fill="#d97757"/>
@@ -17,7 +17,7 @@
 <text x="46" y="155" class="lbl">Cursor</text>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#4c71f2"/>
-<text x="435" y="155" text-anchor="end" class="cnt">2</text>
+<text x="435" y="155" text-anchor="end" class="cnt">1</text>
 </g>
 <g class="stagger" style="animation-delay:750ms">
 <circle cx="32" cy="176" r="5" fill="#858585"/>
