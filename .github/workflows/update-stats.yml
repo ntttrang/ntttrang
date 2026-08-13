@@ -60,19 +60,26 @@ jobs:
         run: python3 scripts/compose-overview.py
 
       - name: Bust README image cache
-        # Append a content-hash query (?v=...) to the README's overview <img>.
-        # A new URL forces browsers / GitHub's CDN to fetch fresh bytes instead
-        # of serving a stale cached copy. Re-derived from overview.svg each run,
-        # so it only changes when the card actually changes (no churn otherwise).
+        # Put the content version in the FILENAME, not a ?query. GitHub's /raw/
+        # redirect strips query strings, so ?v= never reaches the image request
+        # and the browser keeps serving a cached copy. A new filename is a
+        # genuinely new URL to every cache (browser, CDN, camo), so the README
+        # can never display a stale card. Hash is derived from overview.svg, so
+        # it only changes when the card actually changes (no churn otherwise).
         run: |
           python3 - <<'PY'
-          import hashlib, re, pathlib
-          h = hashlib.sha1(pathlib.Path("profile/overview.svg").read_bytes()).hexdigest()[:10]
+          import hashlib, re, pathlib, glob
+          ov = pathlib.Path("profile/overview.svg").read_bytes()
+          h = hashlib.sha1(ov).hexdigest()[:10]
+          name = f"overview-{h}.svg"
+          for f in glob.glob("profile/overview-*.svg"):        # drop prior version
+              pathlib.Path(f).unlink()
+          (pathlib.Path("profile") / name).write_bytes(ov)      # versioned copy
           p = pathlib.Path("README.md"); s = p.read_text()
-          s2, n = re.subn(r'(src="\./profile/overview\.svg)(\?v=[0-9a-f]+)?(")',
-                          lambda m: f'{m[1]}?v={h}{m[3]}', s)
+          s2, n = re.subn(r'src="\./profile/overview[^"]*"',
+                          f'src="./profile/{name}"', s)
           p.write_text(s2)
-          print(f"set overview.svg cache-bust ?v={h} (replacements={n})")
+          print(f"wrote profile/{name}; README src updated (replacements={n})")
           PY
 
       - name: Commit cards
