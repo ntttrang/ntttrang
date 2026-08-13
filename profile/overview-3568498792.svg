@@ -64,7 +64,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 143.36257427918682;
+        stroke-dashoffset: 143.29484555978422;
       }
     }
   
@@ -95,7 +95,7 @@
 <g transform="translate(0.00 13.96) scale(0.9850)">
 
         <title id="c0-titleId">Trang Nguyen&#39;s GitHub Stats, Rank: B</title>
-        <desc id="c0-descId">Total Stars Earned: 4, Total Commits  (last year) : 194, Total PRs: 50, Total Issues: 207, Contributed to (last year): 2</desc>
+        <desc id="c0-descId">Total Stars Earned: 4, Total Commits  (last year) : 195, Total PRs: 50, Total Issues: 207, Contributed to (last year): 2</desc>
         
 
         
@@ -164,7 +164,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >194</text>
+      >195</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="c0-stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -536,11 +536,11 @@
 <g transform="translate(0.00 2.50) scale(1.0000)">
 
 <title id="c3-titleId">AI-enabled Projects</title>
-<desc id="c3-descId">1 of 10 public repositories use AI tooling.</desc>
+<desc id="c3-descId">5 of 9 public repositories use AI tooling.</desc>
 
 
 <text x="25" y="35" class="c3-h">AI-enabled Projects</text>
-<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">1</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">1 of 10 public repos tagged with AI topics</text></g>
+<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-n">5</tspan><tspan class="c3-cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">5 of 9 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="c3-stagger" style="animation-delay:450ms">
 <circle cx="32" cy="126" r="5" fill="#d97757"/>
@@ -552,14 +552,15 @@
 <circle cx="32" cy="151" r="5" fill="#4c71f2"/>
 <text x="46" y="155" class="c3-lbl">Cursor</text>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="144" width="200" height="8" rx="4" fill="#4c71f2"/>
-<text x="435" y="155" text-anchor="end" class="c3-cnt">1</text>
+<rect x="168" y="144" width="133" height="8" rx="4" fill="#4c71f2"/>
+<text x="435" y="155" text-anchor="end" class="c3-cnt">2</text>
 </g>
 <g class="c3-stagger" style="animation-delay:750ms">
 <circle cx="32" cy="176" r="5" fill="#858585"/>
 <text x="46" y="180" class="c3-lbl">Other AI</text>
 <rect x="168" y="169" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="435" y="180" text-anchor="end" class="c3-cnt">0</text>
+<rect x="168" y="169" width="200" height="8" rx="4" fill="#858585"/>
+<text x="435" y="180" text-anchor="end" class="c3-cnt">3</text>
 </g>
 
 </g>
