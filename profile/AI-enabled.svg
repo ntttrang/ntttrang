@@ -1,29 +1,37 @@
-<svg width="460" viewBox="0 0 460 215" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
+<svg width="460" viewBox="0 0 460 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
 <title id="titleId">AI-enabled Projects</title>
 <desc id="descId">5 of 9 public repositories use AI tooling.</desc>
-<style>@keyframes fadeInAnimation{from{opacity:0}to{opacity:1}}.h{font:600 18px 'Segoe UI', Ubuntu, Sans-Serif;fill:#2f80ed;animation:fadeInAnimation .8s ease-in-out forwards}@supports(-moz-appearance:auto){.h{font-size:15.5px}}.n{font:800 36px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cnt{font:700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.stagger{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}</style>
+<style>@keyframes fadeInAnimation{from{opacity:0}to{opacity:1}}.h{font:600 18px 'Segoe UI', Ubuntu, Sans-Serif;fill:#2f80ed;animation:fadeInAnimation .8s ease-in-out forwards}@supports(-moz-appearance:auto){.h{font-size:15.5px}}.icon{fill:#2f80ed;display:block;animation:fadeInAnimation .8s ease-in-out forwards}.n{font:800 36px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.cap{font:600 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:400 11px "Segoe UI", Ubuntu, Sans-Serif;fill:#434d58}.cnt{font:400 11px "Segoe UI", Ubuntu, Sans-Serif;fill:#434d58}.stagger{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}</style>
 <rect x="0.5" y="0.5" rx="4.5" height="99%" width="459" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1" data-testid="card-bg"/>
-<text x="25" y="35" class="h">AI-enabled Projects</text>
+<g data-testid="card-title" transform="translate(25, 35)"><svg class="icon" x="0" y="-13" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path d="M10.628 7.25a2.25 2.25 0 1 1 0 1.5H8.622a2.25 2.25 0 0 1-2.513 1.466L5.03 12.124a2.25 2.25 0 1 1-1.262-.814l1.035-1.832A2.245 2.245 0 0 1 4.25 8c0-.566.209-1.082.553-1.478L3.768 4.69a2.25 2.25 0 1 1 1.262-.814l1.079 1.908A2.25 2.25 0 0 1 8.622 7.25ZM2.5 2.5a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm4 4.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm6.25 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-9.5 5.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"/></svg><text x="25" y="0" class="h">AI-enabled Projects</text></g>
 <g class="stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="n">5</tspan><tspan class="cap" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="cap">5 of 9 public repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="stagger" style="animation-delay:450ms">
-<circle cx="32" cy="126" r="5" fill="#d97757"/>
-<text x="46" y="130" class="lbl">Claude Code</text>
-<rect x="168" y="119" width="200" height="8" rx="4" fill="#e4e2e2"/>
+<circle cx="30" cy="126" r="5" fill="#d97757"/>
+<text x="40" y="130" class="lbl">Claude Code</text>
+<rect x="158" y="119" width="250" height="8" rx="4" fill="#e4e2e2"/>
 <text x="435" y="130" text-anchor="end" class="cnt">0</text>
 </g>
 <g class="stagger" style="animation-delay:600ms">
-<circle cx="32" cy="151" r="5" fill="#4c71f2"/>
-<text x="46" y="155" class="lbl">Cursor</text>
-<rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="144" width="133" height="8" rx="4" fill="#4c71f2"/>
+<circle cx="30" cy="151" r="5" fill="#4c71f2"/>
+<text x="40" y="155" class="lbl">Cursor</text>
+<rect x="158" y="144" width="250" height="8" rx="4" fill="#e4e2e2"/>
+<rect x="158" y="144" width="167" height="8" rx="4" fill="#4c71f2"/>
 <text x="435" y="155" text-anchor="end" class="cnt">2</text>
 </g>
 <g class="stagger" style="animation-delay:750ms">
-<circle cx="32" cy="176" r="5" fill="#858585"/>
-<text x="46" y="180" class="lbl">Other AI</text>
-<rect x="168" y="169" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="169" width="200" height="8" rx="4" fill="#858585"/>
+<circle cx="30" cy="176" r="5" fill="#858585"/>
+<text x="40" y="180" class="lbl">Other AI Assistants</text>
+<rect x="158" y="169" width="250" height="8" rx="4" fill="#e4e2e2"/>
+<rect x="158" y="169" width="250" height="8" rx="4" fill="#858585"/>
 <text x="435" y="180" text-anchor="end" class="cnt">3</text>
+</g>
+<line x1="25" y1="200" x2="435" y2="200" stroke="#e4e2e2" stroke-width="1"/>
+<g class="stagger" style="animation-delay:900ms">
+<circle cx="30" cy="217" r="5" fill="#8957e5"/>
+<text x="40" y="221" class="lbl">AI-Powered Features</text>
+<rect x="158" y="210" width="250" height="8" rx="4" fill="#e4e2e2"/>
+<rect x="158" y="210" width="83" height="8" rx="4" fill="#8957e5"/>
+<text x="435" y="221" text-anchor="end" class="cnt">1</text>
 </g>
 </svg>
