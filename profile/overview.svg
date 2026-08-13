@@ -552,14 +552,14 @@
 <circle cx="32" cy="151" r="5" fill="#4c71f2"/>
 <text x="46" y="155" class="c3-lbl">Cursor</text>
 <rect x="168" y="144" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<text x="435" y="155" text-anchor="end" class="c3-cnt">0</text>
+<rect x="168" y="144" width="200" height="8" rx="4" fill="#4c71f2"/>
+<text x="435" y="155" text-anchor="end" class="c3-cnt">1</text>
 </g>
 <g class="c3-stagger" style="animation-delay:750ms">
 <circle cx="32" cy="176" r="5" fill="#858585"/>
 <text x="46" y="180" class="c3-lbl">Other AI</text>
 <rect x="168" y="169" width="200" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="168" y="169" width="200" height="8" rx="4" fill="#858585"/>
-<text x="435" y="180" text-anchor="end" class="c3-cnt">1</text>
+<text x="435" y="180" text-anchor="end" class="c3-cnt">0</text>
 </g>
 
 </g>
