@@ -20,7 +20,12 @@ permissions:
 
 concurrency:
   group: update-stats
-  cancel-in-progress: true
+  # Queue, don't cancel. This job commits to main, so two overlapping runs race
+  # on the content-hashed overview file (rename/rename conflict on rebase).
+  # With cancel-in-progress a killed run can leave a commit on the branch that
+  # the next run then collides with; serializing lets each run see the previous
+  # run's push before it checks out.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -59,42 +64,45 @@ jobs:
       - name: Compose overview (combine all cards into one image)
         run: python3 scripts/compose-overview.py
 
-      - name: Bust README image cache
-        # Put the content version in the FILENAME, not a ?query. GitHub's /raw/
-        # redirect strips query strings, so ?v= never reaches the image request
-        # and the browser keeps serving a cached copy. A new filename is a
-        # genuinely new URL to every cache (browser, CDN, camo), so the README
-        # can never display a stale card. Hash is derived from overview.svg, so
-        # it only changes when the card actually changes (no churn otherwise).
+      - name: Commit & push cards (resilient to concurrent pushes)
+        # Snapshot the freshly generated cards, then commit + push in a retry
+        # loop. If a concurrent run (or a manual push) advanced main since our
+        # checkout, `git pull --rebase` would hit a rename/rename conflict on
+        # the content-hashed overview file that git can't auto-resolve. On any
+        # failure we abort the rebase, hard-reset to the latest origin/main,
+        # and replay our generated cards as a FRESH commit on top -- with no
+        # historical rename to replay, nothing can conflict. The cards are
+        # regenerated from live data, so a fresh commit is always the correct
+        # result. [skip ci] keeps the bot commit from re-triggering this push.
         run: |
-          python3 - <<'PY'
-          import hashlib, re, pathlib, glob
-          ov = pathlib.Path("profile/overview.svg").read_bytes()
-          h = hashlib.sha1(ov).hexdigest()[:10]
-          name = f"overview-{h}.svg"
-          for f in glob.glob("profile/overview-*.svg"):        # drop prior version
-              pathlib.Path(f).unlink()
-          (pathlib.Path("profile") / name).write_bytes(ov)      # versioned copy
-          p = pathlib.Path("README.md"); s = p.read_text()
-          s2, n = re.subn(r'src="\./profile/overview[^"]*"',
-                          f'src="./profile/{name}"', s)
-          p.write_text(s2)
-          print(f"wrote profile/{name}; README src updated (replacements={n})")
-          PY
-
-      - name: Commit cards
-        run: |
+          set -u
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A profile/ README.md
-          # Nothing staged -> nothing to do (e.g. a run where no card changed).
-          if git diff --cached --quiet; then
-            echo "nothing to commit"; exit 0
-          fi
-          git commit -m "chore: update GitHub stats cards [skip ci]"
-          # [skip ci] so this bot commit does not re-trigger the workflow
-          # (README.md is a push-trigger path -> would otherwise loop).
-          # Rebase onto latest main: a concurrent run may have pushed since
-          # checkout, which would otherwise reject this push (non-fast-forward).
-          git pull --rebase origin main
-          git push
+
+          # Snapshot generated cards so we can replay them verbatim after a reset.
+          rm -rf /tmp/gen && mkdir -p /tmp/gen
+          cp -r profile /tmp/gen/profile
+          cp README.md /tmp/gen/README.md
+
+          for attempt in 1 2 3 4 5; do
+            # Replay generated cards over the working tree, then version the
+            # overview image (new filename = new URL = real cache bust, since
+            # GitHub's /raw/ redirect strips ?query= strings).
+            rm -rf profile && cp -r /tmp/gen/profile profile
+            cp /tmp/gen/README.md README.md
+            python3 scripts/version-overview.py
+
+            git add -A profile/ README.md
+            if git diff --cached --quiet; then echo "nothing to commit"; break; fi
+            git commit -m "chore: update GitHub stats cards [skip ci]" >/dev/null || break
+
+            if git pull --rebase origin main && git push; then
+              echo "pushed on attempt $attempt"
+              break
+            fi
+
+            echo "attempt $attempt: rebase/push failed (concurrent push?); resetting to origin/main"
+            git rebase --abort 2>/dev/null || true
+            git fetch origin main
+            git reset --hard origin/main
+          done
