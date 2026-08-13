@@ -65,7 +65,8 @@ OTHER_COLOR = "#858585"
 # inside "trail"); distinctive terms are matched as substrings.
 AI_TOKENS = {
     "ai", "ml", "llm", "gpt", "rag", "agent", "agents", "genai", "copilot",
-    "agentic", "droid", "kiro", "augment", "windsurf", "codeium",
+    "agentic", "droid", "kiro", "augment", "windsurf", "codeium", "ai-powered",
+    "ai-assisted", "ai-enabled"
 }
 AI_SUBSTR = (
     "artificial-intelligence", "machine-learning", "deep-learning", "neural",
