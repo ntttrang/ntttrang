@@ -69,7 +69,8 @@ query($login: String!) {
 # --- GitHub API helpers --------------------------------------------------------
 def fetch_calendar():
     """Return (days, total, year) where days is a chronological list of
-    (date_str, count). Returns (None, None, None) on any failure."""
+    (date_str, count) and total counts only days from Jan 1 of the current
+    year. Returns (None, None, None) on any failure."""
     if not TOKEN:
         print("warning: GITHUB_TOKEN not set", file=sys.stderr)
     body = json.dumps({"query": QUERY, "variables": {"login": OWNER}}).encode("utf-8")
@@ -103,12 +104,15 @@ def fetch_calendar():
         print("unexpected GraphQL response shape", file=sys.stderr)
         return None, None, None
 
-    total = cal.get("totalContributions", 0)
     days = []
     for week in cal.get("weeks", []):
         for day in week.get("contributionDays", []):
             days.append((day["date"], day.get("contributionCount", 0)))
     year = int(days[-1][0][:4]) if days else dt.date.today().year
+    # The default contributionsCollection spans a rolling year, so its
+    # totalContributions would mix last year into a card labeled "in <year>".
+    # Sum only the current year's days (Jan 1 --> latest day) instead.
+    total = sum(c for d, c in days if d[:4] == str(year))
     return days, total, year
 
 
