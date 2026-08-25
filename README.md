@@ -14,3 +14,9 @@
     <img src="./profile/overview-ed929a6977.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
   </a>
 </p>
+
+
+![Stats](./profile/stats.svg)
+![Top Languages](./profile/top-langs.svg)
+![Pinned](./profile/pin-github-readme-stats.svg)
+
