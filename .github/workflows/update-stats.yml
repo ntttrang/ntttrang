@@ -39,7 +39,10 @@ jobs:
           card: stats
           options: "username=ntttrang&show_icons=true&theme=default"
           path: profile/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # STATS_PAT (personal token with repo scope) includes private-repo
+          # activity; until that secret exists, fall back to the repo-scoped
+          # Actions token (public data only).
+          token: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Generate top-languages card
         uses: readme-tools/github-readme-stats-action@e856fc8de9d7729b463c468911e232cfbdc3d55e  # v2
@@ -47,17 +50,17 @@ jobs:
           card: top-langs
           options: "username=ntttrang&layout=compact&langs_count=10&show_icons=true&theme=default&card_width=460"
           path: profile/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Generate AI-enabled card
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
         run: python3 scripts/AI-enabled-stats.py
 
       - name: Generate streaks card
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
         run: python3 scripts/streak-stats.py
 

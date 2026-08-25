@@ -29,6 +29,9 @@ swap in a uniform frame when merging all cards into one image.
 Environment:
   GITHUB_TOKEN  GitHub token (PAT or the Actions GITHUB_TOKEN) for auth + rate
                 limits. If unset, falls back to anonymous (heavily rate-limited).
+                A PAT with repo scope belonging to OWNER also includes the
+                owner's PRIVATE repositories; the Actions GITHUB_TOKEN is
+                repo-scoped and sees public repos only.
   OWNER         GitHub username to scan (default: ntttrang).
 
 Output:
@@ -164,12 +167,11 @@ def api_get(path):
         return 0, None, {}
 
 
-def list_repos(owner):
+def paged(path):
+    """GET a paginated list endpoint, following Link rel="next"."""
     repos, page = [], 1
     while True:
-        status, data, headers = api_get(
-            f"/users/{owner}/repos?per_page=100&type=owner&sort=updated&page={page}"
-        )
+        status, data, headers = api_get(f"{path}&page={page}")
         if status != 200 or not isinstance(data, list):
             break
         repos.extend(data)
@@ -177,6 +179,24 @@ def list_repos(owner):
             break
         page += 1
     return repos
+
+
+def list_repos(owner):
+    """Return (repos, private_included) for the owner's repositories.
+
+    /users/{owner}/repos lists PUBLIC repos only -- even when authenticated.
+    When the token is a PAT belonging to the same owner (repo scope), use the
+    authenticated /user/repos instead so private repos are scanned too. The
+    Actions GITHUB_TOKEN cannot call /user (not a user token), so CI falls
+    back to the public listing until the workflow is given a real PAT.
+    """
+    if TOKEN:
+        status, me, _ = api_get("/user")
+        if status == 200 and isinstance(me, dict) and str(me.get("login", "")).lower() == owner.lower():
+            return paged(
+                "/user/repos?visibility=all&affiliation=owner&sort=updated&per_page=100"
+            ), True
+    return paged(f"/users/{owner}/repos?per_page=100&type=owner&sort=updated"), False
 
 
 def classify(topics):
@@ -206,8 +226,9 @@ def esc(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def render(total, scanned, rows):
+def render(total, scanned, rows, private_included):
     """rows: list of (label, color, count) in display order."""
+    scope = "repos" if private_included else "public repos"
     row_h = 25
     # Extra space inserted before the product-feature axis (the final row) so the
     # divider below it has breathing room -- the feature axis is a different axis
@@ -219,7 +240,7 @@ def render(total, scanned, rows):
         f'<svg width="{CARD_W}" viewBox="0 0 {CARD_W} {height}" fill="none" '
         f'xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">',
         f'<title id="titleId">AI-enabled Projects</title>',
-        f'<desc id="descId">{total} of {scanned} public repositories use AI tooling.</desc>',
+        f'<desc id="descId">{total} of {scanned} {"repos" if private_included else "public repos"} use AI tooling.</desc>',
         (
             f'<style>'
             f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
@@ -253,7 +274,7 @@ def render(total, scanned, rows):
         f'<tspan class="num">{total}</tspan>'
         f'<tspan class="unit" dx="8">repos</tspan></text>'
         f'<text x="{CARD_W / 2}" y="94" text-anchor="middle" class="cap">'
-        f'{total} of {scanned} public repos tagged with AI topics</text>'
+        f'{total} of {scanned} {scope} tagged with AI topics</text>'
         f'</g>',
         f'<line x1="25" y1="112" x2="{CARD_W - 25}" y2="112" stroke="{BORDER}" stroke-width="1"/>',
     ]
@@ -298,8 +319,10 @@ def main():
     if not TOKEN:
         print("warning: GITHUB_TOKEN not set; using anonymous (rate-limited) requests", file=sys.stderr)
 
-    repos = list_repos(OWNER)
+    repos, private_included = list_repos(OWNER)
     candidates = [r for r in repos if not r.get("fork")]
+    print(f"scanning {len(candidates)} "
+          f"{'repos (incl. private)' if private_included else 'public repos'}")
 
     counts = {key: 0 for key, *_ in TOOLS}
     assistant = 0
@@ -331,7 +354,7 @@ def main():
     rows.append((ASSISTANT_LABEL, ASSISTANT_COLOR, assistant))
     rows.append((FEATURE_LABEL, FEATURE_COLOR, feature))
 
-    svg = render(total, len(candidates), rows)
+    svg = render(total, len(candidates), rows, private_included)
     os.makedirs("profile", exist_ok=True)
     with open("profile/AI-enabled.svg", "w", encoding="utf-8") as f:
         f.write(svg)

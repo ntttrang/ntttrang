@@ -543,11 +543,11 @@
 <g transform="translate(32.34 0.00) scale(0.8594)">
 
 <title id="c3-titleId">AI-enabled Projects</title>
-<desc id="c3-descId">5 of 15 public repositories use AI tooling.</desc>
+<desc id="c3-descId">7 of 73 repos use AI tooling.</desc>
 
 
 <g data-testid="card-title" transform="translate(25, 35)"><svg class="c3-icon" x="0" y="-13" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path d="M10.628 7.25a2.25 2.25 0 1 1 0 1.5H8.622a2.25 2.25 0 0 1-2.513 1.466L5.03 12.124a2.25 2.25 0 1 1-1.262-.814l1.035-1.832A2.245 2.245 0 0 1 4.25 8c0-.566.209-1.082.553-1.478L3.768 4.69a2.25 2.25 0 1 1 1.262-.814l1.079 1.908A2.25 2.25 0 0 1 8.622 7.25ZM2.5 2.5a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm4 4.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm6.25 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-9.5 5.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"/></svg><text x="25" y="0" class="c3-h">AI-enabled Projects</text></g>
-<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-num">5</tspan><tspan class="c3-unit" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">5 of 15 public repos tagged with AI topics</text></g>
+<g class="c3-stagger" style="animation-delay:150ms"><text x="230.0" y="74" text-anchor="middle"><tspan class="c3-num">7</tspan><tspan class="c3-unit" dx="8">repos</tspan></text><text x="230.0" y="94" text-anchor="middle" class="c3-cap">7 of 73 repos tagged with AI topics</text></g>
 <line x1="25" y1="112" x2="435" y2="112" stroke="#e4e2e2" stroke-width="1"/>
 <g class="c3-stagger" style="animation-delay:450ms">
 <circle cx="30" cy="126" r="5" fill="#d97757"/>
@@ -574,8 +574,8 @@
 <circle cx="30" cy="217" r="5" fill="#8957e5"/>
 <text x="40" y="221" class="c3-lbl">AI-Powered Features</text>
 <rect x="180" y="210" width="235" height="8" rx="4" fill="#e4e2e2"/>
-<rect x="180" y="210" width="78" height="8" rx="4" fill="#8957e5"/>
-<text x="435" y="221" text-anchor="end" class="c3-cnt">1</text>
+<rect x="180" y="210" width="235" height="8" rx="4" fill="#8957e5"/>
+<text x="435" y="221" text-anchor="end" class="c3-cnt">3</text>
 </g>
 
 </g>
