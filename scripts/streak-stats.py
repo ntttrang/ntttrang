@@ -3,11 +3,12 @@
 
 Reads the owner's contribution calendar via the GraphQL API and computes the
 current streak, the longest streak, and the yearly contribution total -- then
-renders a static SVG card matching the github-readme-stats visual style,
-including the same entrance animations (title fade-in, staggered box reveal).
-The card is committed to the profile repo by the GitHub Actions workflow, so
-profile views never hit the API at view time (same "works anytime" approach as
-the other cards).
+renders a static SVG card in the classic github-readme-streak-stats layout:
+three columns (Total Contributions | Current Streak in a flame-topped ring |
+Longest Streak) with the same staggered entrance animations. The card is
+committed to the profile repo by the GitHub Actions workflow, so profile
+views never hit the API at view time (same "works anytime" approach as the
+other cards).
 
 The contribution calendar is read with the workflow's GITHUB_TOKEN. If that
 token cannot read contributionsCollection, the card degrades gracefully
@@ -34,23 +35,24 @@ API = "https://api.github.com/graphql"
 OWNER = os.environ.get("OWNER") or "ntttrang"
 TOKEN = os.environ.get("GITHUB_TOKEN") or ""
 
-# --- Visual style (matches github-readme-stats default theme) -----------------
+# --- Visual style (github-readme-streak-stats "default" theme) ------------------
 BG = "#fffefe"
-BOX = "#f6f8fa"
 BORDER = "#e4e2e2"
-TITLE_COLOR = "#2f80ed"
-TEXT_COLOR = "#434d58"
-MUTED = "#858585"
-FLAME = "#ff6b35"
-FLAME_INNER = "#ffd166"
-FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif"
-# github-readme-stats titles use this shorter stack (no "Helvetica Neue") plus a
-# Firefox font-size override. Match it so the title matches the other cards.
-TITLE_FONT = "'Segoe UI', Ubuntu, Sans-Serif"
-# Native size matches the composer's cell (460 wide, <=220 tall) so the card is
-# embedded at scale 1.0 -- its title/body text then renders at the same displayed
-# size as the github-readme-stats cards (which also sit near scale 1.0).
+STROKE = "#e4e2e2"  # dividers between the three columns
+RING = "#fb8c00"  # circle around the current streak
+FIRE = "#fb8c00"  # flame at the top of the ring
+NUM = "#151515"  # big numbers (side columns + current streak)
+SIDE_LABEL = "#151515"  # "Total Contributions" / "Longest Streak"
+CURR_LABEL = "#fb8c00"  # "Current Streak"
+DATES = "#464646"  # date-range captions
+FONT = "'Segoe UI', Ubuntu, Sans-Serif"
+
+# Native size: 460 wide matches the composer's cell so the card is embedded at
+# scale 1.0 -- its 28px/14px/12px text then renders at the same displayed size
+# as the other cards. Height 195 is the reference card's default; the composer
+# centers the content vertically in its 460x220 frame.
 CARD_W = 460
+CARD_H = 195
 
 QUERY = """
 query($login: String!) {
@@ -137,7 +139,7 @@ def compute_streaks(days):
         cur_start = cur_end = None
 
     # Longest streak: longest run of consecutive non-zero days.
-    best = best_start = best_end = 0
+    best = best_start_date = best_end_date = 0
     best_start_date = best_end_date = None
     run = 0
     run_start_idx = None
@@ -168,8 +170,13 @@ def esc(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def fmt_day(date_str):
+def fmt_day(date_str, force_year=False):
+    """'2026-03-08' -> 'Mar 8' for the current year, 'Mar 8, 2025' otherwise
+    (same rule as the reference card; the total range always shows the year
+    because it scopes the total to that calendar year)."""
     d = dt.date.fromisoformat(date_str)
+    if force_year or d.year != dt.date.today().year:
+        return d.strftime("%b %-d, %Y")
     return d.strftime("%b %-d")
 
 
@@ -178,98 +185,114 @@ def range_str(start, end):
         return ""
     if start == end:
         return fmt_day(start)
-    return f"{fmt_day(start)} – {fmt_day(end)}"
+    return f"{fmt_day(start)} - {fmt_day(end)}"
 
 
-def flame_icon():
-    # Heroicons "fire" (24x24), drawn from primitives so it always renders.
-    outer = (
-        "M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 "
-        "8.287 8.287 0 0 0 9 9.6a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48z"
-    )
-    inner = (
-        "M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 "
-        "5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18z"
+def range_text(cx, rng):
+    """A centered date range, wrapped onto a second centered line at the
+    ' - ' when it is too long for one column (same wrap as the reference)."""
+    if len(rng) > 25 and " - " in rng:
+        line1, line2 = rng.split(" - ", 1)
+        return (
+            f'<tspan x="{cx:.2f}" dy="0">{esc(line1)}</tspan>'
+            f'<tspan x="{cx:.2f}" dy="16">- {esc(line2)}</tspan>'
+        )
+    return esc(rng)
+
+
+def flame_icon(cx):
+    # The reference card's flame (single tone), seated on top of the ring.
+    fire = (
+        "M 1.5 0.67 C 1.5 0.67 2.24 3.32 2.24 5.47 C 2.24 7.53 0.89 9.2 -1.17 9.2 "
+        "C -3.23 9.2 -4.79 7.53 -4.79 5.47 L -4.76 5.11 C -6.78 7.51 -8 10.62 -8 13.99 "
+        "C -8 18.41 -4.42 22 0 22 C 4.42 22 8 18.41 8 13.99 C 8 8.6 5.41 3.79 1.5 0.67 Z "
+        "M -0.29 19 C -2.07 19 -3.51 17.6 -3.51 15.86 C -3.51 14.24 -2.46 13.1 -0.7 12.74 "
+        "C 1.07 12.38 2.9 11.53 3.92 10.16 C 4.31 11.45 4.51 12.81 4.51 14.2 "
+        "C 4.51 16.85 2.36 19 -0.29 19 Z"
     )
     return (
-        '<g transform="translate(24,11) scale(0.82)">'
-        f'<path d="{outer}" fill="{FLAME}"/>'
-        f'<path d="{inner}" fill="{FLAME_INNER}"/>'
-        "</g>"
+        f'<g transform="translate({cx:.2f} 19.5)" class="fi" style="animation-delay:.6s">'
+        f'<path d="{fire}" fill="{FIRE}"/></g>'
     )
 
 
-def stat_box(x, w, label, value, value_color, caption):
-    """A rounded box with label / big number / caption, centered horizontally."""
-    cx = x + w / 2
-    parts = [
-        f'<rect x="{x}" y="66" width="{w}" height="98" rx="8" fill="{BOX}" stroke="{BORDER}"/>',
-        f'<text x="{cx}" y="89" text-anchor="middle" class="lbl">{esc(label)}</text>',
-        f'<text x="{cx}" y="130" text-anchor="middle">'
-        f'<tspan class="num" fill="{value_color}">{value}</tspan>'
-        f'<tspan class="unit" dx="6">days</tspan></text>',
-    ]
-    if caption:
-        parts.append(
-            f'<text x="{cx}" y="152" text-anchor="middle" class="cap">{esc(caption)}</text>'
-        )
-    return "".join(parts)
+def render(s, total, year, available, total_start):
+    col = CARD_W / 3
+    xs = [col / 2, col * 1.5, col * 2.5]  # column centers: total | current | longest
+    bars_x = [col, col * 2]
 
-
-def render(s, total, year, available):
-    height = 216
     cur = s["current"] if s else 0
     best = s["longest"] if s else 0
-    cur_cap = range_str(s["current_start"], s["current_end"]) if s else ""
-    best_cap = range_str(s["longest_start"], s["longest_end"]) if s else ""
     cur_txt = f"{cur:,}" if available else "—"
     best_txt = f"{best:,}" if available else "—"
     total_txt = f"{total:,}" if available else "—"
-    cap_note = "" if available else "contribution data unavailable"
-
-    box_w = 200
-    left_x = 25
-    right_x = CARD_W - 25 - box_w
+    cur_rng = range_str(s["current_start"], s["current_end"]) if s else ""
+    best_rng = range_str(s["longest_start"], s["longest_end"]) if s else ""
+    total_rng = (
+        f"{fmt_day(total_start, force_year=True)} - Present"
+        if available and total_start
+        else ""
+    )
 
     parts = [
-        f'<svg width="{CARD_W}" height="{height}" viewBox="0 0 {CARD_W} {height}" '
+        f'<svg width="{CARD_W}" height="{CARD_H}" viewBox="0 0 {CARD_W} {CARD_H}" '
         f'fill="none" xmlns="http://www.w3.org/2000/svg" role="img" '
         f'aria-labelledby="titleId descId">',
         f'<title id="titleId">Streak Stats</title>',
-        f'<desc id="descId">Current streak {cur_txt} days, longest streak '
-        f'{best_txt} days, {total_txt} contributions in {year}.</desc>',
+        f'<desc id="descId">Total contributions {total_txt} in {year}, current '
+        f'streak {cur_txt} days, longest streak {best_txt} days.</desc>',
         (
-            f'<style>'
-            f'@keyframes fadeInAnimation{{from{{opacity:0}}to{{opacity:1}}}}'
-            f'.h{{font:600 18px {TITLE_FONT};fill:{TITLE_COLOR};animation:fadeInAnimation .8s ease-in-out forwards}}'
-            f'@supports(-moz-appearance:auto){{.h{{font-size:15.5px}}}}'
-            f'.lbl{{font:600 12px {FONT};fill:{MUTED}}}'
-            f'.num{{font:800 30px {FONT};fill:{TEXT_COLOR}}}'
-            f'.unit{{font:600 12px {FONT};fill:{MUTED}}}'
-            f'.cap{{font:400 10.5px {FONT};fill:{MUTED}}}'
-            f'.tlbl{{font:600 13px {FONT};fill:{MUTED}}}'
-            f'.tnum{{font:700 16px {FONT};fill:{TEXT_COLOR}}}'
-            f'.stagger{{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}}'
-            f'</style>'
+            "<style>"
+            "@keyframes fadein{from{opacity:0}to{opacity:1}}"
+            "@keyframes currstreak{0%{font-size:3px;opacity:.2}80%{font-size:34px;opacity:1}"
+            "100%{font-size:28px;opacity:1}}"
+            ".fi{opacity:0;animation:fadein .5s linear forwards}"
+            f".num{{font:700 28px {FONT};fill:{NUM}}}"
+            f".lbl{{font:400 14px {FONT};fill:{SIDE_LABEL}}}"
+            f".cur{{font:700 14px {FONT};fill:{CURR_LABEL}}}"
+            f".dts{{font:400 12px {FONT};fill:{DATES}}}"
+            f".note{{font:400 10px {FONT};fill:{DATES}}}"
+            f".cs{{animation:currstreak .6s linear forwards}}"
+            "</style>"
         ),
-        f'<rect x="0.5" y="0.5" rx="4.5" height="99%" width="{CARD_W - 1}" '
+        f'<rect x="0.5" y="0.5" width="{CARD_W - 1}" height="{CARD_H - 1}" rx="4.5" '
         f'stroke="{BORDER}" fill="{BG}" stroke-opacity="1" data-testid="card-bg"/>',
-        flame_icon(),
-        f'<text x="52" y="33" class="h">Streak Stats</text>',
-        f'<line x1="25" y1="52" x2="{CARD_W - 25}" y2="52" stroke="{BORDER}" stroke-width="1"/>',
-        f'<g class="stagger" style="animation-delay:450ms">' + stat_box(left_x, box_w, "Current Streak", cur_txt, FLAME, cur_cap) + '</g>',
-        f'<g class="stagger" style="animation-delay:600ms">' + stat_box(right_x, box_w, "Longest Streak", best_txt, TITLE_COLOR, best_cap) + '</g>',
-        f'<line x1="25" y1="172" x2="{CARD_W - 25}" y2="172" stroke="{BORDER}" stroke-width="1"/>',
-        f'<g class="stagger" style="animation-delay:750ms">'
-        f'<text x="{CARD_W / 2}" y="196" text-anchor="middle">'
-        f'<tspan class="tlbl">Total Contributions </tspan>'
-        f'<tspan class="tnum">{total_txt}</tspan>'
-        f'<tspan class="cap"> in {year}</tspan></text>'
-        f'</g>',
+        # Dividers between the three columns.
+        *[
+            f'<line x1="{x:.2f}" y1="28" x2="{x:.2f}" y2="170" '
+            f'stroke="{STROKE}" stroke-width="1"/>'
+            for x in bars_x
+        ],
+        # Total Contributions column.
+        f'<text x="{xs[0]:.2f}" y="80" text-anchor="middle" class="num fi" '
+        f'style="animation-delay:.6s">{total_txt}</text>',
+        f'<text x="{xs[0]:.2f}" y="116" text-anchor="middle" class="lbl fi" '
+        f'style="animation-delay:.7s">Total Contributions</text>',
+        f'<text x="{xs[0]:.2f}" y="146" text-anchor="middle" class="dts fi" '
+        f'style="animation-delay:.8s">{range_text(xs[0], total_rng)}</text>',
+        # Current Streak column: flame-topped ring around the number.
+        f'<defs><mask id="ringMask"><rect width="{CARD_W}" height="{CARD_H}" fill="#fff"/>'
+        f'<ellipse cx="{xs[1]:.2f}" cy="32" rx="13" ry="18" fill="#000"/></mask></defs>',
+        f'<g mask="url(#ringMask)"><circle cx="{xs[1]:.2f}" cy="71" r="40" fill="none" '
+        f'stroke="{RING}" stroke-width="5" class="fi" style="animation-delay:.4s"/></g>',
+        flame_icon(xs[1]),
+        f'<text x="{xs[1]:.2f}" y="80" text-anchor="middle" class="num cs">{cur_txt}</text>',
+        f'<text x="{xs[1]:.2f}" y="140" text-anchor="middle" class="cur fi" '
+        f'style="animation-delay:.9s">Current Streak</text>',
+        f'<text x="{xs[1]:.2f}" y="166" text-anchor="middle" class="dts fi" '
+        f'style="animation-delay:.9s">{range_text(xs[1], cur_rng)}</text>',
+        # Longest Streak column.
+        f'<text x="{xs[2]:.2f}" y="80" text-anchor="middle" class="num fi" '
+        f'style="animation-delay:1.2s">{best_txt}</text>',
+        f'<text x="{xs[2]:.2f}" y="116" text-anchor="middle" class="lbl fi" '
+        f'style="animation-delay:1.3s">Longest Streak</text>',
+        f'<text x="{xs[2]:.2f}" y="146" text-anchor="middle" class="dts fi" '
+        f'style="animation-delay:1.4s">{range_text(xs[2], best_rng)}</text>',
     ]
     if not available:
         parts.append(
-            f'<text x="{CARD_W / 2}" y="210" text-anchor="middle" class="cap">{esc(cap_note)}</text>'
+            f'<text x="5" y="187" class="note fi" style="animation-delay:.9s">'
+            f"contribution data unavailable</text>"
         )
     parts.append("</svg>")
     return "\n".join(parts)
@@ -279,8 +302,11 @@ def main():
     days, total, year = fetch_calendar()
     available = days is not None
     s = compute_streaks(days) if available else None
+    total_start = (
+        next((d for d, c in days if d[:4] == str(year)), None) if available else None
+    )
 
-    svg = render(s, total, year, available)
+    svg = render(s, total, year, available, total_start)
     os.makedirs("profile", exist_ok=True)
     with open("profile/streaks.svg", "w", encoding="utf-8") as f:
         f.write(svg)
