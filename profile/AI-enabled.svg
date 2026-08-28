@@ -1,6 +1,6 @@
 <svg width="460" viewBox="0 0 460 165" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
 <title id="titleId">AI-Powered Projects</title>
-<desc id="descId">1 of 17 public repos are AI-powered products.</desc>
+<desc id="descId">1 of 20 public repos are AI-powered products.</desc>
 <style>@keyframes fadeInAnimation{from{opacity:0}to{opacity:1}}.h{font:600 18px 'Segoe UI', Ubuntu, Sans-Serif;fill:#2f80ed;animation:fadeInAnimation .8s ease-in-out forwards}@supports(-moz-appearance:auto){.h{font-size:15.5px}}.num{font:800 30px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.unit{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.lbl{font:600 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#434d58}.tp{font:400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif;fill:#858585}.stagger{opacity:0;animation:fadeInAnimation .3s ease-in-out forwards}</style>
 <rect x="0.5" y="0.5" rx="4.5" height="99%" width="459" stroke="#e4e2e2" fill="#fffefe" stroke-opacity="1" data-testid="card-bg"/>
 <g data-testid="card-title" transform="translate(25, 35)"><text x="0" y="0" class="h">AI-Powered Projects</text></g>
