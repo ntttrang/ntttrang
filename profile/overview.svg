@@ -64,7 +64,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 109.03622049208376;
+        stroke-dashoffset: 108.59094593067125;
       }
     }
   
@@ -95,7 +95,7 @@
 <g transform="translate(0.00 13.96) scale(0.9850)">
 
         <title id="c0-titleId">Trang Nguyen&#39;s GitHub Stats, Rank: B+</title>
-        <desc id="c0-descId">Total Stars Earned: 19, Total Commits  (last year) : 340, Total PRs: 74, Total Issues: 216, Contributed to (last year): 2</desc>
+        <desc id="c0-descId">Total Stars Earned: 19, Total Commits  (last year) : 343, Total PRs: 75, Total Issues: 216, Contributed to (last year): 2</desc>
         
 
         
@@ -164,7 +164,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >340</text>
+      >343</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="c0-stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -179,7 +179,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >74</text>
+      >75</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="c0-stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
@@ -335,7 +335,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="203.41"
+          width="202.79"
           height="8"
           fill="#3572A5"
         />
@@ -343,9 +343,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="203.41"
+          x="202.79"
           y="0"
-          width="94.2"
+          width="93.91"
           height="8"
           fill="#3178c6"
         />
@@ -353,9 +353,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="297.61"
+          x="296.7"
           y="0"
-          width="35.37"
+          width="36.52"
           height="8"
           fill="#00ADD8"
         />
@@ -363,9 +363,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="332.98"
+          x="333.21999999999997"
           y="0"
-          width="31.15"
+          width="31.05"
           height="8"
           fill="#e34c26"
         />
@@ -373,9 +373,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="364.13"
+          x="364.27"
           y="0"
-          width="20.26"
+          width="20.2"
           height="8"
           fill="#DA5B0B"
         />
@@ -383,9 +383,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="384.39"
+          x="384.46999999999997"
           y="0"
-          width="19.28"
+          width="19.25"
           height="8"
           fill="#f1e05a"
         />
@@ -393,9 +393,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="393.66999999999996"
+          x="393.71999999999997"
           y="0"
-          width="17.68"
+          width="17.66"
           height="8"
           fill="#663399"
         />
@@ -403,9 +403,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="401.34999999999997"
+          x="401.38"
           y="0"
-          width="13.11"
+          width="13.1"
           height="8"
           fill="#e38c00"
         />
@@ -413,9 +413,9 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="404.46"
+          x="404.48"
           y="0"
-          width="12.85"
+          width="12.84"
           height="8"
           fill="#F05138"
         />
@@ -423,7 +423,7 @@
         <rect
           mask="url(#c1-rect-mask)"
           data-testid="lang-progress"
-          x="407.31"
+          x="407.32"
           y="0"
           width="12.69"
           height="8"
@@ -436,35 +436,35 @@
     <g class="c1-stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Python 49.61%
+        Python 49.46%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="c1-stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        TypeScript 22.98%
+        TypeScript 22.90%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="c1-stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#00ADD8" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Go 8.63%
+        Go 8.91%
       </text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="c1-stagger" style="animation-delay: 900ms">
       <circle cx="5" cy="6" r="5" fill="#e34c26" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        HTML 7.60%
+        HTML 7.57%
       </text>
     </g>
   </g><g transform="translate(0, 100)">
     <g class="c1-stagger" style="animation-delay: 1050ms">
       <circle cx="5" cy="6" r="5" fill="#DA5B0B" />
       <text data-testid="lang-name" x="15" y="10" class='c1-lang-name'>
-        Jupyter Notebook 4.94%
+        Jupyter Notebook 4.93%
       </text>
     </g>
   </g></g><g transform="translate(150, 0)"><g transform="translate(0, 0)">
@@ -517,12 +517,12 @@
 <g transform="translate(0.00 12.50) scale(1.0000)">
 
 <title id="c2-titleId">Streak Stats</title>
-<desc id="c2-descId">Total contributions 468 in 2026, current streak 4 days, longest streak 7 days.</desc>
+<desc id="c2-descId">Total contributions 472 in 2026, current streak 4 days, longest streak 7 days.</desc>
 
 
 <line x1="153.33" y1="28" x2="153.33" y2="170" stroke="#e4e2e2" stroke-width="1"/>
 <line x1="306.67" y1="28" x2="306.67" y2="170" stroke="#e4e2e2" stroke-width="1"/>
-<text x="76.67" y="80" text-anchor="middle" class="c2-num c2-fi" style="animation-delay:.6s">468</text>
+<text x="76.67" y="80" text-anchor="middle" class="c2-num c2-fi" style="animation-delay:.6s">472</text>
 <text x="76.67" y="116" text-anchor="middle" class="c2-lbl c2-fi" style="animation-delay:.7s">Total Contributions</text>
 <text x="76.67" y="146" text-anchor="middle" class="c2-dts c2-fi" style="animation-delay:.8s">Jan 1, 2026 - Present</text>
 <defs><mask id="c2-ringMask"><rect width="460" height="195" fill="#fff"/><ellipse cx="230.00" cy="32" rx="13" ry="18" fill="#000"/></mask></defs>
