@@ -11,7 +11,7 @@
 
 <p align="left">
   <a href="https://github.com/ntttrang">
-    <img src="./profile/overview-2c7346b774.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
+    <img src="./profile/overview-4743ecf0f5.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
   </a>
 </p>
 
