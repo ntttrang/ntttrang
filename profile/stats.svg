@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Trang Nguyen&#39;s GitHub Stats, Rank: B+</title>
-        <desc id="descId">Total Stars Earned: 19, Total Commits  (last year) : 382, Total PRs: 82, Total Issues: 216, Contributed to (last year): 2</desc>
+        <desc id="descId">Total Stars Earned: 19, Total Commits  (last year) : 382, Total PRs: 83, Total Issues: 216, Contributed to (last year): 2</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,11 +73,12 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 104.87788053151124;
+        stroke-dashoffset: 104.60033175970808;
       }
     }
   
   
+          
 
           
       /* Animations */
@@ -102,9 +103,15 @@
         </style>
 
         
+        <defs>
+          
+          
+        </defs>
+        
 
         <rect
           data-testid="card-bg"
+          class="card-bg"
           x="0.5"
           y="0.5"
           rx="4.5"
@@ -192,7 +199,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >82</text>
+      >83</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
