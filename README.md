@@ -9,9 +9,3 @@
 🌐 &nbsp;**How I work** — across different domains, technologies, and programming languages, thriving on learning the tools and practices needed to contribute effectively to each project.
 
 
-<p align="left">
-  <a href="https://github.com/ntttrang">
-    <img src="./profile/overview-d83301af5c.svg" alt="Trang's GitHub overview — stats, top languages, AI-enabled projects and streaks" />
-  </a>
-</p>
-
